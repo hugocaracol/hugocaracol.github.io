@@ -1,140 +1,140 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>http://localhost:4000</loc>
+        <loc>http://hugocaracol.github.io</loc>
     </url>
     
     
     <url>
-        <loc>http://localhost:4000/python/python-exit-program/</loc>
+        <loc>http://hugocaracol.github.io/python/python-exit-program/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/data-mining/relevant-keywords-using-tf-idf/</loc>
+        <loc>http://hugocaracol.github.io/data-mining/relevant-keywords-using-tf-idf/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/code/rtfm-extended/</loc>
+        <loc>http://hugocaracol.github.io/code/rtfm-extended/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/oop/c/classes-in-c-programming/</loc>
+        <loc>http://hugocaracol.github.io/oop/c/classes-in-c-programming/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/code/fibonacci-ultra-fast/</loc>
+        <loc>http://hugocaracol.github.io/code/fibonacci-ultra-fast/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/code/accelerating-with-memoization/</loc>
+        <loc>http://hugocaracol.github.io/code/accelerating-with-memoization/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/scheme/lisp/sqrt-newton-way/</loc>
+        <loc>http://hugocaracol.github.io/scheme/lisp/sqrt-newton-way/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/debugging/delta-debugging/</loc>
+        <loc>http://hugocaracol.github.io/debugging/delta-debugging/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/bitwise/bitwise-and-constant-values/</loc>
+        <loc>http://hugocaracol.github.io/bitwise/bitwise-and-constant-values/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/debugging/making-of-a-simple-debugger/</loc>
+        <loc>http://hugocaracol.github.io/debugging/making-of-a-simple-debugger/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/debugging/preconditions-postconditions-invariants/</loc>
+        <loc>http://hugocaracol.github.io/debugging/preconditions-postconditions-invariants/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/debugging/software-debugging/</loc>
+        <loc>http://hugocaracol.github.io/debugging/software-debugging/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/testing/babysitting-an-army-of-monkeys/</loc>
+        <loc>http://hugocaracol.github.io/testing/babysitting-an-army-of-monkeys/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/testing/code-coverage/</loc>
+        <loc>http://hugocaracol.github.io/testing/code-coverage/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/testing/software-testing/</loc>
+        <loc>http://hugocaracol.github.io/testing/software-testing/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/python/class-inheritance-check-with-mro/</loc>
+        <loc>http://hugocaracol.github.io/python/class-inheritance-check-with-mro/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/python/decorators-in-python/</loc>
+        <loc>http://hugocaracol.github.io/python/decorators-in-python/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/github/migration-to-github-pages/</loc>
+        <loc>http://hugocaracol.github.io/github/migration-to-github-pages/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/random/portuguese-dictionary/</loc>
+        <loc>http://hugocaracol.github.io/random/portuguese-dictionary/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/random/nokogiri/</loc>
+        <loc>http://hugocaracol.github.io/random/nokogiri/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/algorithms/quicksort/</loc>
+        <loc>http://hugocaracol.github.io/algorithms/quicksort/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/github/new-repo/</loc>
+        <loc>http://hugocaracol.github.io/github/new-repo/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/algorithms/merge-sort/</loc>
+        <loc>http://hugocaracol.github.io/algorithms/merge-sort/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/algorithms/shell-sort/</loc>
+        <loc>http://hugocaracol.github.io/algorithms/shell-sort/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/algorithms/insertion-sort/</loc>
+        <loc>http://hugocaracol.github.io/algorithms/insertion-sort/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/algorithms/shaker-sort/</loc>
+        <loc>http://hugocaracol.github.io/algorithms/shaker-sort/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/algorithms/bubble-sort/</loc>
+        <loc>http://hugocaracol.github.io/algorithms/bubble-sort/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/algorithms/selection-sort/</loc>
+        <loc>http://hugocaracol.github.io/algorithms/selection-sort/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/data%20structures/hash-table/</loc>
+        <loc>http://hugocaracol.github.io/data%20structures/hash-table/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/algorithms/binary-search/</loc>
+        <loc>http://hugocaracol.github.io/algorithms/binary-search/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/php/session-hijacking/</loc>
+        <loc>http://hugocaracol.github.io/php/session-hijacking/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/data%20structures/queue-data-structure/</loc>
+        <loc>http://hugocaracol.github.io/data%20structures/queue-data-structure/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/data%20structures/stack-data-structure/</loc>
+        <loc>http://hugocaracol.github.io/data%20structures/stack-data-structure/</loc>
     </url>
     
 </urlset>
