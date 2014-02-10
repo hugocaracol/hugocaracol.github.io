@@ -1,0 +1,385 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Decorators in Python &#8211; Never Pop</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Decorators in Python">
+<meta property="og:description" content="Describe your website.">
+<meta property="og:url" content="http://localhost:4000/python/decorators-in-python/">
+<meta property="og:site_name" content="Never Pop">
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/python/decorators-in-python/">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Never Pop Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Webfonts -->
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.min.css">
+
+<!--[if (lt IE 9) & (!IEMobile)]>
+<link rel="stylesheet" href="http://localhost:4000/assets/css/ie.min.css">
+<![endif]-->
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="http://localhost:4000/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://localhost:4000/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body class="post">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="http://localhost:4000">Never Pop</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation">
+		    <ul>
+		        
+				<li><a href="http://localhost:4000/about/" >About</a></li>
+		        
+				<li><a href="http://localhost:4000/posts/" >Posts</a></li>
+		        
+		        <li><i class="icon-feed"></i> <a href="http://localhost:4000/feed.xml" title="Atom/RSS feed">Feed</a>
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+
+<div id="main" role="main">
+  <div class="article-author-side">
+    <img src="http://localhost:4000/images/bio-photo.jpg" class="bio-photo" alt="Hugo Santos bio photo"></a>
+<h3>Hugo Santos</h3>
+<p></p>
+
+
+
+<a href="http://linkedin.com/in/hugocaracol" class="author-social" target="_blank"><i class="icon-linkedin"></i> LinkedIn</a>
+
+<a href="http://github.com/hugocaracol" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+
+
+  </div>
+  <article>
+    <div class="headline-wrap">
+      <h1>Decorators in Python</h1>
+      <h2></h2>
+    </div><!--/ .headline-wrap -->
+    <div class="article-wrap">
+      <p>Today I’ll turn you into a decorator. Let’s build a house and decorated it.
+First things first… the house. In my world it’s very simple to build a house, just call the function build_house().
+After the “construction”, in order to live there, we need to turn it cozier. For this effect we can call a decorator to shine things up.
+When she arrives and sees the house she says: I’m going to decorate it with paitings on the wall. With no further delay she: @decorate(“paitings”).</p>
+
+<div class="highlight"><pre><code class="python"><span class="k">def</span> <span class="nf">decorate</span><span class="p">(</span><span class="n">thing</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_decorate</span><span class="p">(</span><span class="n">func_name</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">__decorate</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="n">func_name</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">thing</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="n">ret</span> <span class="o">+=</span> <span class="s">&quot; decorated with </span><span class="si">%s</span><span class="s"> on the wall&quot;</span> <span class="o">%</span> <span class="n">thing</span>
+            <span class="k">return</span> <span class="n">ret</span>
+        <span class="k">return</span> <span class="n">__decorate</span>
+    <span class="k">return</span> <span class="n">_decorate</span> 
+
+<span class="nd">@decorate</span><span class="p">(</span><span class="s">&quot;paintings&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">build_house</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s">&quot;This is a house&quot;</span>
+</code></pre></div>
+
+<div class="highlight"><pre><code class="python"><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="n">build_house</span><span class="p">()</span>
+<span class="n">This</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">house</span> <span class="n">decorated</span> <span class="k">with</span> <span class="n">paintings</span> <span class="n">on</span> <span class="n">the</span> <span class="n">wall</span>
+</code></pre></div>
+
+<!-- more -->
+<p>##Basic Usage
+Decorators are used to change a function behaviour not by altering its code but by trapping the entry and exit points. Suppose you want to log the execution time of a function or make it return different values according to additional rules. The code to do that fits perfectly in a decorator.
+## Explanation
+When a function is decorated, it is run inside the decorator. This way, it is granted to the decorator the power to do the things described earlier.
+###Functions return functions
+Functions are first class objects. That means a function is indeed an object. Objects can be passed as arguments and be returned by functions. Therefore, functions can consume functions and return functions (replace the word functions with objects and you get a true statement as well).</p>
+
+<p>The statement <em>functions can return functions</em> implies that an argument of a function can be a function and/or a function can be defined inside a function.</p>
+
+<p>I’m getting sick of writing the word <em>function</em> but let’s continue with a piece of code.</p>
+
+<div class="highlight"><pre><code class="python"><span class="k">def</span> <span class="nf">outer</span><span class="p">():</span>
+    <span class="k">def</span> <span class="nf">inner</span><span class="p">():</span>
+        <span class="k">print</span> <span class="s">&#39;inner&#39;</span>
+    <span class="k">return</span> <span class="n">inner</span>
+
+<span class="n">fn</span> <span class="o">=</span> <span class="n">outer</span><span class="p">()</span>
+<span class="n">fn</span><span class="p">()</span>  <span class="c"># prints inner</span>
+</code></pre></div>
+
+<p>The code above defines the function inner inside outer. When we run outer(), the fn variable becomes equal to the function inner. </p>
+
+<blockquote>
+  <p>The line 4 returns the inner function without calling it (did you notice the lack of parentheses?).</p>
+</blockquote>
+
+<p>Now if we call fn by adding parentheses () we get the execution of inner.</p>
+
+<p>This leads us to…</p>
+
+<h3 id="closures">Closures</h3>
+<p>From Wikipedia…
+&gt;A closure—unlike a plain function pointer—allows a function to access those non-local variables even when invoked outside of its immediate lexical scope.</p>
+
+<p>This means that our inner function can “remember” non-local variables, in our case, variables defined in outer function.</p>
+
+<div class="highlight"><pre><code class="python"><span class="k">def</span> <span class="nf">outer</span><span class="p">():</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">def</span> <span class="nf">inner</span><span class="p">():</span>
+        <span class="k">print</span> <span class="s">&#39;Got value </span><span class="si">%i</span><span class="s"> from non-local&#39;</span> <span class="o">%</span> <span class="n">x</span>
+    <span class="k">return</span> <span class="n">inner</span>
+    
+<span class="n">fn</span> <span class="o">=</span> <span class="n">outer</span><span class="p">()</span>
+<span class="k">del</span> <span class="n">outer</span>  <span class="c"># deletes object outer</span>
+<span class="n">fn</span><span class="p">()</span>  <span class="c"># &#39;Got value 1 from non-local&#39;</span>
+</code></pre></div>
+
+<p>Even deleting the function outer, fn() still prints x variable.</p>
+
+<h3 id="functions-as-arguments">Functions as arguments</h3>
+
+<div class="highlight"><pre><code class="python"><span class="k">def</span> <span class="nf">run_me</span><span class="p">():</span>
+    <span class="k">print</span> <span class="s">&quot;I&#39;m running baby&quot;</span>
+
+<span class="k">def</span> <span class="nf">outer</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">inner</span><span class="p">():</span>
+        <span class="k">print</span> <span class="s">&quot;Before running the function&quot;</span>
+        <span class="n">func</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">inner</span>
+    
+<span class="n">r</span> <span class="o">=</span> <span class="n">outer</span><span class="p">(</span><span class="n">run_me</span><span class="p">)</span>
+<span class="k">del</span> <span class="n">run_me</span>  <span class="c"># deletes run_me function</span>
+<span class="n">r</span><span class="p">()</span>  <span class="c"># &quot;I&#39;m running baby&quot;</span>
+</code></pre></div>
+
+<p>On line 9, r gets function inner, returned by outer, which calls run_me (closure), which prints “I’m running baby”.</p>
+
+<h3 id="decorate-me">Decorate me!</h3>
+<p>Now let’s try some decorator magic.</p>
+
+<div class="highlight"><pre><code class="python"><span class="k">def</span> <span class="nf">outer</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">inner</span><span class="p">():</span>
+        <span class="k">print</span> <span class="s">&quot;Before running the function&quot;</span>
+        <span class="n">func</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">inner</span>
+
+<span class="nd">@outer</span>
+<span class="k">def</span> <span class="nf">run_me</span><span class="p">():</span>
+    <span class="k">print</span> <span class="s">&quot;I&#39;m running baby&quot;</span>
+
+<span class="n">run_me</span><span class="p">()</span>  <span class="c">#call run_me and prints the next 2 lines</span>
+<span class="n">Before</span> <span class="n">running</span> <span class="n">the</span> <span class="n">function</span>
+<span class="n">I</span><span class="s">&#39;m running baby</span>
+</code></pre></div>
+
+<p>This is a simple example of a decorator. To apply the decorator to a function you use @ symbol followed by the decorator name. Here you no longer need to use ‘r = outer(run_me)’ and ‘r()’. Much simpler!</p>
+
+<p>How about if we change the definition of function run_me and add a parameter name to it? Will the decorator still works? Let’s try!</p>
+
+<div class="highlight"><pre><code class="python"><span class="k">def</span> <span class="nf">outer</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">inner</span><span class="p">():</span>
+        <span class="k">print</span> <span class="s">&quot;Before running the function&quot;</span>
+        <span class="n">func</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">inner</span>
+
+<span class="nd">@outer</span>
+<span class="k">def</span> <span class="nf">run_me</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s">&quot;I&#39;m running </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">name</span>
+
+<span class="n">run_me</span><span class="p">(</span><span class="s">&quot;Hugo&quot;</span><span class="p">)</span>  <span class="c"># error below</span>
+<span class="ne">TypeError</span><span class="p">:</span> <span class="n">inner</span><span class="p">()</span> <span class="n">takes</span> <span class="n">no</span> <span class="n">arguments</span> <span class="p">(</span><span class="mi">1</span> <span class="n">given</span><span class="p">)</span>
+</code></pre></div>
+
+<p>We get an error saying function inner takes no arguments but we tried to pass the name “Hugo”. Sadly it doesn’t work. Happily we know how to fix it :)</p>
+
+<p>To fix it we add a parameter ‘name’ to the function inner and then add the argument to the function call on line 4 below.</p>
+
+<div class="highlight"><pre><code class="python"><span class="k">def</span> <span class="nf">outer</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">inner</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+        <span class="k">print</span> <span class="s">&quot;Before running the function&quot;</span>
+        <span class="n">func</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">inner</span>
+
+<span class="nd">@outer</span>
+<span class="k">def</span> <span class="nf">run_me</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s">&quot;I&#39;m running </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">name</span>
+
+<span class="n">run_me</span><span class="p">(</span><span class="s">&quot;Hugo&quot;</span><span class="p">)</span>  <span class="c"># now it works</span>
+<span class="c">#Before running the function</span>
+<span class="c">#I&#39;m running hugo</span>
+</code></pre></div>
+
+<p>Ok, so far so good. But what happens if I change the definition of the function run_me and add some more parameters? It will FAIL! Let’s make the decorator more generic so we don’t have to worry too much.</p>
+
+<h3 id="args-and-kwargs">*args and **kwargs</h3>
+
+<p>*args and **kwargs are conventional ways to get the arguments passed to a function.</p>
+
+<p>For more info on *args and **kwargs please refer to one of the many posted questions on <a href="http://stackoverflow.com/questions/3394835/args-and-kwargs">Stackoverflow</a> or <a href="http://docs.python.org/2/tutorial/controlflow.html#arbitrary-argument-lists">Python docs</a>.</p>
+
+<p>As we want to abstract from the number of arguments passed to the function inner we replace ‘def inner(name):’ with ‘def inner(*args, **kwargs):’ and ‘func(name)’ with ‘func(*args, **kwargs)’. </p>
+
+<div class="highlight"><pre><code class="python"><span class="k">def</span> <span class="nf">outer</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">inner</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">print</span> <span class="s">&quot;Before running the function&quot;</span>
+        <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">inner</span>
+
+<span class="nd">@outer</span>
+<span class="k">def</span> <span class="nf">run_me</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s">&quot;I&#39;m running </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">name</span>
+
+<span class="n">run_me</span><span class="p">(</span><span class="s">&quot;Hugo&quot;</span><span class="p">)</span>  <span class="c"># now it works</span>
+<span class="c">#Before running the function</span>
+<span class="c">#I&#39;m running hugo</span>
+</code></pre></div>
+
+<h3 id="final-touch---passing-arguments-to-the-decorator">Final touch - passing arguments to the decorator</h3>
+<p>This step is only required if you want to add some salt to the decorator, changing the way it works when certain arguments are passed to it. A lot can be “decorated” without this step.</p>
+
+<p>The decorator function now has a parameter that indicates if we run it in debug mode or not. To get this, we add another “level” of functions. As you can see from the code below the decorator is composed by the function outer (with takes the debug argument), the function _outer (which takes the ‘function’ argument) and the function inner (which takes the arguments to the function to be decorated).</p>
+
+<div class="highlight"><pre><code class="python"><span class="k">def</span> <span class="nf">outer</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_outer</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">inner</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">debug</span><span class="p">:</span>
+                <span class="k">print</span> <span class="s">&quot;Before running the function&quot;</span>
+            <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">inner</span>
+    <span class="k">return</span> <span class="n">_outer</span>
+
+<span class="nd">@outer</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>  <span class="c"># decorated is NOT in debug mode</span>
+<span class="k">def</span> <span class="nf">run_me</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s">&quot;I&#39;m running </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">name</span>
+
+<span class="n">run_me</span><span class="p">(</span><span class="s">&quot;Hugo&quot;</span><span class="p">)</span>
+<span class="c"># I&#39;m running Hugo</span>
+</code></pre></div>
+
+<p>This concludes the post.</p>
+
+<p>Disclaimer: Much of the ideas described here came from Simeon Franklin’s <a href="http://simeonfranklin.com/blog/2012/jul/1/python-decorators-in-12-steps/">post on decorators</a>.</p>
+
+      <hr />
+      <footer role="contentinfo">
+        <div class="article-author-bottom">
+          <img src="http://localhost:4000/images/bio-photo.jpg" class="bio-photo" alt="Hugo Santos bio photo"></a>
+<h3>Hugo Santos</h3>
+<p></p>
+
+
+
+<a href="http://linkedin.com/in/hugocaracol" class="author-social" target="_blank"><i class="icon-linkedin"></i> LinkedIn</a>
+
+<a href="http://github.com/hugocaracol" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+
+
+        </div>
+        <p class="byline"><strong>Decorators in Python</strong> was published on <time datetime="2013-01-08T20:56:00+00:00">January 08, 2013</time> by <a href="http://localhost:4000/about" title="About Hugo Santos">Hugo Santos</a>.</p>
+      </footer>
+    </div><!-- /.article-wrap -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrap">
+  <div class="related-articles">
+  <h4>You might also enjoy <small class="pull-right">(<a href="http://localhost:4000/posts/">View all posts</a>)</small></h4>
+    <ul>
+    
+      
+      
+        
+          
+        
+      
+      
+      <li><a href="http://localhost:4000/python/python-exit-program/" title="python exit program">python exit program</a></li>
+      
+    
+      
+      
+        
+      
+      
+    
+      
+      
+        
+      
+      
+    
+    </ul>
+    <hr />
+  </div><!-- /.related-articles -->
+  <footer>
+    <span>&copy; 2014 Hugo Santos. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://localhost:4000/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://localhost:4000/assets/js/scripts.min.js"></script>
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  var _gaq = _gaq || [];
+  var pluginUrl = 
+ '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-127045-13']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+	        
+
+</body>
+</html>

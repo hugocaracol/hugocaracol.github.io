@@ -1,0 +1,16 @@
+---
+layout: post
+title: "New repo"
+status: publish
+categories: [github]
+comments: true
+tags:
+- git
+- python
+---
+git init  
+git add  
+git commit  
+git push
+
+Code has been pushed to <a href="https://github.com/hugocaracol/alg-ds">Github</a>.

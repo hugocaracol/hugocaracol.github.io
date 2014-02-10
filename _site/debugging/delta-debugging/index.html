@@ -1,0 +1,295 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Delta Debugging &#8211; Never Pop</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Delta Debugging">
+<meta property="og:description" content="Describe your website.">
+<meta property="og:url" content="http://localhost:4000/debugging/delta-debugging/">
+<meta property="og:site_name" content="Never Pop">
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/debugging/delta-debugging/">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Never Pop Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Webfonts -->
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.min.css">
+
+<!--[if (lt IE 9) & (!IEMobile)]>
+<link rel="stylesheet" href="http://localhost:4000/assets/css/ie.min.css">
+<![endif]-->
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="http://localhost:4000/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://localhost:4000/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body class="post">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="http://localhost:4000">Never Pop</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation">
+		    <ul>
+		        
+				<li><a href="http://localhost:4000/about/" >About</a></li>
+		        
+				<li><a href="http://localhost:4000/posts/" >Posts</a></li>
+		        
+		        <li><i class="icon-feed"></i> <a href="http://localhost:4000/feed.xml" title="Atom/RSS feed">Feed</a>
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+
+<div id="main" role="main">
+  <div class="article-author-side">
+    <img src="http://localhost:4000/images/bio-photo.jpg" class="bio-photo" alt="Hugo Santos bio photo"></a>
+<h3>Hugo Santos</h3>
+<p></p>
+
+
+
+<a href="http://linkedin.com/in/hugocaracol" class="author-social" target="_blank"><i class="icon-linkedin"></i> LinkedIn</a>
+
+<a href="http://github.com/hugocaracol" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+
+
+  </div>
+  <article>
+    <div class="headline-wrap">
+      <h1>Delta Debugging</h1>
+      <h2></h2>
+    </div><!--/ .headline-wrap -->
+    <div class="article-wrap">
+      <p>Delta Debugging is an automated debugging approach based on systematic testing.</p>
+
+<p>Programmers follow this approach when they are manually debugging a piece of code that is failing at some point. Imagine some large input is causing a function to crash. What do you do? You start by reducing the input and check if the function works. If not, you do the chopping again until it works.<br />
+This can be very hard to do if some random set from a 5000 character string is failing. It’s like the needle in a haystack problem.</p>
+
+<!-- more -->
+
+<p>Well, delta debugging simplifies this A LOT! The algorithm <strong>starts by chopping the input in 2</strong> (the granularity - n). Then, it removes the first substring and tests with the second one. If the test passes, it runs now with only the first substring. The latter caused the test to fail. Good. Now we know that the problem is in there. The algorithm goes on using that substring (the one that failed the test) and, again, chopps it in two. But on the next step, both parts of the <em>failed substring</em> pass the test. When this occurrs the granularity value (n) is <strong>updated to n * 2</strong> and the algorithm continues until it finds the minimal input that is causing the failure. This is a very simple overview of how delta debugging works.</p>
+
+<p>One importart part of this equation is the test function. We need a good function in order to get good results. You can create a generic test function that executes some code and traps exceptions. This way the test function can return true or false or even PASS or FAIL. Wichever suits you.</p>
+
+<p>Below I give you an example of this code (provided by Professor Andreas Zeller). The test function checks wether the html select tag is found in the input string. It is obvious in this case but in practice you don’t know what is causing the problem.</p>
+
+<div class="highlight"><pre><code class="python"><span class="kn">import</span> <span class="nn">re</span>
+
+<span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">counter</span>
+    <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s">&quot;&lt;SELECT[^&gt;]*&gt;&quot;</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s">&quot;test &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">counter</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot;: &quot;</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="s">&quot;FAIL&quot;</span>
+        <span class="k">return</span> <span class="s">&quot;FAIL&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s">&quot;test &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">counter</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot;: &quot;</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="s">&quot;PASS&quot;</span>
+        <span class="k">return</span> <span class="s">&quot;PASS&quot;</span>
+
+
+<span class="k">def</span> <span class="nf">ddmin</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">test</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">==</span> <span class="s">&quot;FAIL&quot;</span>
+
+    <span class="n">n</span> <span class="o">=</span> <span class="mi">2</span>     <span class="c"># Initial granularity</span>
+    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s">&quot;Using n=&quot;</span><span class="p">,</span> <span class="n">n</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">subset_length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span>
+        <span class="k">print</span> <span class="s">&quot;Using subset_length=&quot;</span><span class="p">,</span> <span class="n">subset_length</span>
+        <span class="n">some_complement_is_failing</span> <span class="o">=</span> <span class="bp">False</span>
+
+        <span class="k">while</span> <span class="n">start</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+            <span class="n">complement</span> <span class="o">=</span> <span class="n">s</span><span class="p">[:</span><span class="n">start</span><span class="p">]</span> <span class="o">+</span> <span class="n">s</span><span class="p">[</span><span class="n">start</span> <span class="o">+</span> <span class="n">subset_length</span><span class="p">:]</span>
+
+            <span class="k">if</span> <span class="n">test</span><span class="p">(</span><span class="n">complement</span><span class="p">)</span> <span class="o">==</span> <span class="s">&quot;FAIL&quot;</span><span class="p">:</span>
+                <span class="n">s</span> <span class="o">=</span> <span class="n">complement</span>
+                <span class="n">n</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+                <span class="n">some_complement_is_failing</span> <span class="o">=</span> <span class="bp">True</span>
+                <span class="k">break</span>
+                
+            <span class="n">start</span> <span class="o">+=</span> <span class="n">subset_length</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">some_complement_is_failing</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+                <span class="k">break</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">s</span>
+</code></pre></div>
+
+<div class="highlight"><pre><code class="python"><span class="n">html_input</span> <span class="o">=</span> <span class="s">&#39;&lt;SELECT&gt;foo&lt;/SELECT&gt;&#39;</span>
+<span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">print</span> <span class="n">ddmin</span><span class="p">(</span><span class="n">html_input</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">&#39;called test &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">counter</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#39; times&#39;</span>
+</code></pre></div>
+
+<div class="highlight"><pre><code class="python"><span class="n">test</span> <span class="mi">1</span><span class="p">:</span>  <span class="o">&lt;</span><span class="n">SELECT</span><span class="o">&gt;</span><span class="n">foo</span><span class="o">&lt;/</span><span class="n">SELECT</span><span class="o">&gt;</span> <span class="n">FAIL</span>
+<span class="n">Using</span> <span class="n">n</span><span class="o">=</span> <span class="mi">2</span>
+<span class="n">Using</span> <span class="n">subset_length</span><span class="o">=</span> <span class="mi">10</span>
+<span class="n">test</span> <span class="mi">2</span><span class="p">:</span>  <span class="n">o</span><span class="o">&lt;/</span><span class="n">SELECT</span><span class="o">&gt;</span> <span class="n">PASS</span>
+<span class="n">test</span> <span class="mi">3</span><span class="p">:</span>  <span class="o">&lt;</span><span class="n">SELECT</span><span class="o">&gt;</span><span class="n">fo</span> <span class="n">FAIL</span>
+<span class="n">Using</span> <span class="n">n</span><span class="o">=</span> <span class="mi">2</span>
+<span class="n">Using</span> <span class="n">subset_length</span><span class="o">=</span> <span class="mi">5</span>
+<span class="n">test</span> <span class="mi">4</span><span class="p">:</span>  <span class="n">CT</span><span class="o">&gt;</span><span class="n">fo</span> <span class="n">PASS</span>
+<span class="n">test</span> <span class="mi">5</span><span class="p">:</span>  <span class="o">&lt;</span><span class="n">SELE</span> <span class="n">PASS</span>
+<span class="n">Using</span> <span class="n">n</span><span class="o">=</span> <span class="mi">4</span>
+<span class="n">Using</span> <span class="n">subset_length</span><span class="o">=</span> <span class="mi">2</span>
+<span class="n">test</span> <span class="mi">6</span><span class="p">:</span>  <span class="n">ELECT</span><span class="o">&gt;</span><span class="n">fo</span> <span class="n">PASS</span>
+<span class="n">test</span> <span class="mi">7</span><span class="p">:</span>  <span class="o">&lt;</span><span class="n">SECT</span><span class="o">&gt;</span><span class="n">fo</span> <span class="n">PASS</span>
+<span class="n">test</span> <span class="mi">8</span><span class="p">:</span>  <span class="o">&lt;</span><span class="n">SELT</span><span class="o">&gt;</span><span class="n">fo</span> <span class="n">PASS</span>
+<span class="n">test</span> <span class="mi">9</span><span class="p">:</span>  <span class="o">&lt;</span><span class="n">SELECfo</span> <span class="n">PASS</span>
+<span class="n">test</span> <span class="mi">10</span><span class="p">:</span>  <span class="o">&lt;</span><span class="n">SELECT</span><span class="o">&gt;</span> <span class="n">FAIL</span>
+<span class="n">Using</span> <span class="n">n</span><span class="o">=</span> <span class="mi">3</span>
+<span class="n">Using</span> <span class="n">subset_length</span><span class="o">=</span> <span class="mi">2</span>
+<span class="n">test</span> <span class="mi">11</span><span class="p">:</span>  <span class="n">ELECT</span><span class="o">&gt;</span> <span class="n">PASS</span>
+<span class="n">test</span> <span class="mi">12</span><span class="p">:</span>  <span class="o">&lt;</span><span class="n">SECT</span><span class="o">&gt;</span> <span class="n">PASS</span>
+<span class="n">test</span> <span class="mi">13</span><span class="p">:</span>  <span class="o">&lt;</span><span class="n">SELT</span><span class="o">&gt;</span> <span class="n">PASS</span>
+<span class="n">test</span> <span class="mi">14</span><span class="p">:</span>  <span class="o">&lt;</span><span class="n">SELEC</span> <span class="n">PASS</span>
+<span class="n">Using</span> <span class="n">n</span><span class="o">=</span> <span class="mi">6</span>
+<span class="n">Using</span> <span class="n">subset_length</span><span class="o">=</span> <span class="mi">1</span>
+<span class="n">test</span> <span class="mi">15</span><span class="p">:</span>  <span class="n">SELECT</span><span class="o">&gt;</span> <span class="n">PASS</span>
+<span class="n">test</span> <span class="mi">16</span><span class="p">:</span>  <span class="o">&lt;</span><span class="n">ELECT</span><span class="o">&gt;</span> <span class="n">PASS</span>
+<span class="n">test</span> <span class="mi">17</span><span class="p">:</span>  <span class="o">&lt;</span><span class="n">SLECT</span><span class="o">&gt;</span> <span class="n">PASS</span>
+<span class="n">test</span> <span class="mi">18</span><span class="p">:</span>  <span class="o">&lt;</span><span class="n">SEECT</span><span class="o">&gt;</span> <span class="n">PASS</span>
+<span class="n">test</span> <span class="mi">19</span><span class="p">:</span>  <span class="o">&lt;</span><span class="n">SELCT</span><span class="o">&gt;</span> <span class="n">PASS</span>
+<span class="n">test</span> <span class="mi">20</span><span class="p">:</span>  <span class="o">&lt;</span><span class="n">SELET</span><span class="o">&gt;</span> <span class="n">PASS</span>
+<span class="n">test</span> <span class="mi">21</span><span class="p">:</span>  <span class="o">&lt;</span><span class="n">SELEC</span><span class="o">&gt;</span> <span class="n">PASS</span>
+<span class="n">test</span> <span class="mi">22</span><span class="p">:</span>  <span class="o">&lt;</span><span class="n">SELECT</span> <span class="n">PASS</span>
+<span class="n">Using</span> <span class="n">n</span><span class="o">=</span> <span class="mi">8</span>
+<span class="n">Using</span> <span class="n">subset_length</span><span class="o">=</span> <span class="mi">1</span>
+<span class="n">test</span> <span class="mi">23</span><span class="p">:</span>  <span class="n">SELECT</span><span class="o">&gt;</span> <span class="n">PASS</span>
+<span class="n">test</span> <span class="mi">24</span><span class="p">:</span>  <span class="o">&lt;</span><span class="n">ELECT</span><span class="o">&gt;</span> <span class="n">PASS</span>
+<span class="n">test</span> <span class="mi">25</span><span class="p">:</span>  <span class="o">&lt;</span><span class="n">SLECT</span><span class="o">&gt;</span> <span class="n">PASS</span>
+<span class="n">test</span> <span class="mi">26</span><span class="p">:</span>  <span class="o">&lt;</span><span class="n">SEECT</span><span class="o">&gt;</span> <span class="n">PASS</span>
+<span class="n">test</span> <span class="mi">27</span><span class="p">:</span>  <span class="o">&lt;</span><span class="n">SELCT</span><span class="o">&gt;</span> <span class="n">PASS</span>
+<span class="n">test</span> <span class="mi">28</span><span class="p">:</span>  <span class="o">&lt;</span><span class="n">SELET</span><span class="o">&gt;</span> <span class="n">PASS</span>
+<span class="n">test</span> <span class="mi">29</span><span class="p">:</span>  <span class="o">&lt;</span><span class="n">SELEC</span><span class="o">&gt;</span> <span class="n">PASS</span>
+<span class="n">test</span> <span class="mi">30</span><span class="p">:</span>  <span class="o">&lt;</span><span class="n">SELECT</span> <span class="n">PASS</span>
+<span class="o">&lt;</span><span class="n">SELECT</span><span class="o">&gt;</span>
+<span class="n">called</span> <span class="n">test</span> <span class="mi">30</span> <span class="n">times</span>
+</code></pre></div>
+
+<p>For the people using <strong>git</strong> there’s <strong>git bisect</strong>. Some people say that:<br />
+&gt;”git bisect” is one of the most useful and overlooked debugging tools.</p>
+
+
+      <hr />
+      <footer role="contentinfo">
+        <div class="article-author-bottom">
+          <img src="http://localhost:4000/images/bio-photo.jpg" class="bio-photo" alt="Hugo Santos bio photo"></a>
+<h3>Hugo Santos</h3>
+<p></p>
+
+
+
+<a href="http://linkedin.com/in/hugocaracol" class="author-social" target="_blank"><i class="icon-linkedin"></i> LinkedIn</a>
+
+<a href="http://github.com/hugocaracol" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+
+
+        </div>
+        <p class="byline"><strong>Delta Debugging</strong> was published on <time datetime="2013-04-09T23:31:00+01:00">April 09, 2013</time> by <a href="http://localhost:4000/about" title="About Hugo Santos">Hugo Santos</a>.</p>
+      </footer>
+    </div><!-- /.article-wrap -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrap">
+  <div class="related-articles">
+  <h4>You might also enjoy <small class="pull-right">(<a href="http://localhost:4000/posts/">View all posts</a>)</small></h4>
+    <ul>
+    
+      
+      
+        
+      
+      
+    
+      
+      
+        
+      
+      
+    
+      
+      
+        
+      
+      
+    
+    </ul>
+    <hr />
+  </div><!-- /.related-articles -->
+  <footer>
+    <span>&copy; 2014 Hugo Santos. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://localhost:4000/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://localhost:4000/assets/js/scripts.min.js"></script>
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  var _gaq = _gaq || [];
+  var pluginUrl = 
+ '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-127045-13']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+	        
+
+</body>
+</html>

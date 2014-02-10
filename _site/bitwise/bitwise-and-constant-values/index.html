@@ -1,0 +1,356 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Bitwise and CONSTANT values &#8211; Never Pop</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bitwise and CONSTANT values">
+<meta property="og:description" content="Describe your website.">
+<meta property="og:url" content="http://localhost:4000/bitwise/bitwise-and-constant-values/">
+<meta property="og:site_name" content="Never Pop">
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/bitwise/bitwise-and-constant-values/">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Never Pop Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Webfonts -->
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.min.css">
+
+<!--[if (lt IE 9) & (!IEMobile)]>
+<link rel="stylesheet" href="http://localhost:4000/assets/css/ie.min.css">
+<![endif]-->
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="http://localhost:4000/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://localhost:4000/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body class="post">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="http://localhost:4000">Never Pop</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation">
+		    <ul>
+		        
+				<li><a href="http://localhost:4000/about/" >About</a></li>
+		        
+				<li><a href="http://localhost:4000/posts/" >Posts</a></li>
+		        
+		        <li><i class="icon-feed"></i> <a href="http://localhost:4000/feed.xml" title="Atom/RSS feed">Feed</a>
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+
+<div id="main" role="main">
+  <div class="article-author-side">
+    <img src="http://localhost:4000/images/bio-photo.jpg" class="bio-photo" alt="Hugo Santos bio photo"></a>
+<h3>Hugo Santos</h3>
+<p></p>
+
+
+
+<a href="http://linkedin.com/in/hugocaracol" class="author-social" target="_blank"><i class="icon-linkedin"></i> LinkedIn</a>
+
+<a href="http://github.com/hugocaracol" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+
+
+  </div>
+  <article>
+    <div class="headline-wrap">
+      <h1>Bitwise and CONSTANT values</h1>
+      <h2></h2>
+    </div><!--/ .headline-wrap -->
+    <div class="article-wrap">
+      <p>Recently I read an article explaining how to use bitwise operations to grant or deny access to something.
+I liked the article so much that I’ll try to add it to my personal stack (my blog).</p>
+
+<p>There are 4 types of bitwise operators: <strong>NOT</strong>, <strong>AND</strong>, <strong>OR</strong> and <strong>XOR</strong>. 
+In Python these operators are <strong>~</strong>, <strong>&amp;</strong>, <strong>|</strong>, <strong>^</strong> respectively.</p>
+
+<h2 id="truth-tables">Truth tables</h2>
+
+<h4 id="nbspnbspnotnbspnbspnbspnbspnbspnbspnbspnbspnbspnbspnbspnbspnbspnbspandnbspnbspnbspnbspnbspnbspnbspnbspnbspnbspnbspnbspornbspnbspnbspnbspnbspnbspnbspnbspnbspnbspnbspnbspxor">  NOT              AND            OR            XOR</h4>
+
+<table>
+<tr>
+<td>
+    <table style="border: 1px solid black;">
+        <tr>
+            <th style="border: 1px solid black;">A</th><th style="border: 1px solid black;text-align:center">NOT A</th>
+        </tr>
+        <tr>
+            <td style="border: 1px solid black;text-align:center">1</td><td style="border: 1px solid black;text-align:center">0</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid black;text-align:center">0</td><td style="border: 1px solid black;text-align:center">1</td>
+        </tr>
+    </table>
+</td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+    <table style="border: 1px solid black;">
+        <tr>
+            <th style="border: 1px solid black;text-align:center">A</th>
+            <th style="border: 1px solid black;text-align:center">B</th>
+            <th style="border: 1px solid black;text-align:center">A AND B</th>
+        </tr>
+        <tr>
+            <td style="border: 1px solid black;text-align:center">0</td>
+            <td style="border: 1px solid black;text-align:center">0</td>
+            <td style="border: 1px solid black;text-align:center">0</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid black;text-align:center">0</td>
+            <td style="border: 1px solid black;text-align:center">1</td>
+            <td style="border: 1px solid black;text-align:center">0</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid black;text-align:center">1</td>
+            <td style="border: 1px solid black;text-align:center">0</td>
+            <td style="border: 1px solid black;text-align:center">0</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid black;text-align:center">1</td>
+            <td style="border: 1px solid black;text-align:center">1</td>
+            <td style="border: 1px solid black;text-align:center">1</td>
+        </tr>
+    </table>
+</td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+    <table style="border: 1px solid black;">
+        <tr>
+            <th style="border: 1px solid black;text-align:center">A</th>
+            <th style="border: 1px solid black;text-align:center">B</th>
+            <th style="border: 1px solid black;text-align:center">A OR B</th>
+        </tr>
+        <tr>
+            <td style="border: 1px solid black;text-align:center">0</td>
+            <td style="border: 1px solid black;text-align:center">0</td>
+            <td style="border: 1px solid black;text-align:center">0</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid black;text-align:center">0</td>
+            <td style="border: 1px solid black;text-align:center">1</td>
+            <td style="border: 1px solid black;text-align:center">1</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid black;text-align:center">1</td>
+            <td style="border: 1px solid black;text-align:center">0</td>
+            <td style="border: 1px solid black;text-align:center">1</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid black;text-align:center">1</td>
+            <td style="border: 1px solid black;text-align:center">1</td>
+            <td style="border: 1px solid black;text-align:center">1</td>
+        </tr>
+    </table>    
+</td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>    
+    <table style="border: 1px solid black;">
+        <tr>
+            <th style="border: 1px solid black;text-align:center">A</th>
+            <th style="border: 1px solid black;text-align:center">B</th>
+            <th style="border: 1px solid black;text-align:center">A XOR B</th>
+        </tr>
+        <tr>
+            <td style="border: 1px solid black;text-align:center">0</td>
+            <td style="border: 1px solid black;text-align:center">0</td>
+            <td style="border: 1px solid black;text-align:center">0</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid black;text-align:center">0</td>
+            <td style="border: 1px solid black;text-align:center">1</td>
+            <td style="border: 1px solid black;text-align:center">1</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid black;text-align:center">1</td>
+            <td style="border: 1px solid black;text-align:center">0</td>
+            <td style="border: 1px solid black;text-align:center">1</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid black;text-align:center">1</td>
+            <td style="border: 1px solid black;text-align:center">1</td>
+            <td style="border: 1px solid black;text-align:center">0</td>
+        </tr>
+    </table>    
+</td>
+</tr>
+</table>
+
+<h2 id="left-shift-right-shift">Left Shift, Right Shift</h2>
+
+<p>If we have a byte representing an unsigned integer 1 (0 0 0 0 0 0 0 1) and make a left shift, we get 2 (0 0 0 0 0 0 1 0). If we make another shift to the left 
+we get 4 (0 0 0 0 0 1 0 0) and so on.</p>
+
+<p>On the other hand if we have a byte with the unsigned integer 4 (0 0 0 0 0 1 0 0) and shift it to the right, we get 2 (0 0 0 0 0 0 1 0).</p>
+
+<p>In Python <strong>«</strong> represents left shift and <strong>»</strong> represents right shift.
+<!-- more --></p>
+
+<h2 id="assigning-constant-values">Assigning CONSTANT values</h2>
+
+<p>Imagine we need to set some permissions to protect some sort of CRUD (Create Read Update Delete) system. Different users have different permissions.
+One user may have more than one permission. If he’s root (or superman) he may do all 4, but if he’s a guest he may only read.</p>
+
+<p>To set all this stuff easily we can start by assigning PERM_CREATE = 1. Next is PERM_READ. But which value this constant will hold? Easy!! 
+We can left shift PERM_CREATE and assigning it to PERM_READ. Therefore, PERM_READ = 2. And we do the same thing for the remaining permission items.</p>
+
+<p>In the end we get:<br />
+PERM_CREATE = 1 (<strong>0 0 0 0 0 0 0 1</strong>)<br />
+PERM_READ = 2 (<strong>0 0 0 0 0 0 1 0</strong>)<br />
+PERM_UPDATE = 4 (<strong>0 0 0 0 0 1 0 0</strong>)<br />
+PERM_DELETE = 8 (<strong>0 0 0 0 1 0 0 0</strong>)  </p>
+
+<p>Did you follow the binary pattern represented above? Noticed all the left shifts?</p>
+
+<h2 id="making-sense-of-these-constants">Making sense of these constants</h2>
+
+<p>To give all permissions to the user A we can do:</p>
+
+<div class="highlight"><pre><code class="python"><span class="n">PERM_A</span> <span class="o">=</span> <span class="n">PERM_CREATE</span> <span class="o">|</span> <span class="n">PERM_READ</span> <span class="o">|</span> <span class="n">PERM_UPDATE</span> <span class="o">|</span> <span class="n">PERM_DELETE</span>
+</code></pre></div>
+
+<p>If we check the value of PERM_A, we get 15.</p>
+
+<p>0 0 0 0 0 0 0 1 <strong>PERM_CREATE</strong><br />
+0 0 0 0 0 0 1 0 <strong>PERM_READ</strong><br />
+0 0 0 0 0 1 0 0 <strong>PERM_UPDATE</strong><br />
+0 0 0 0 1 0 0 0 <strong>PERM_DELETE</strong><br />
+=-=-=-=-=-=-=-=<br />
+0 0 0 0 1 1 1 1 =&gt; 15 (base 10)  </p>
+
+<p>Having PERM_A all permissions, if we want to remove the permission to delete we just ‘<strong>XOR</strong> it’.  </p>
+
+<div class="highlight"><pre><code class="python"><span class="n">PERM_A</span> <span class="o">=</span> <span class="n">PERM_A</span> <span class="o">^</span> <span class="n">PERM_DELETE</span>
+</code></pre></div>
+
+<p>And finally, to check if the user has permission to delete we just ‘<strong>AND</strong> it’.</p>
+
+<div class="highlight"><pre><code class="python"><span class="k">if</span> <span class="n">PERM_A</span> <span class="o">&amp;</span> <span class="n">PERM_DELETE</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&#39;Yes I can!&#39;</span>
+</code></pre></div>
+
+<p>This concludes the bitwise perm system.</p>
+
+      <hr />
+      <footer role="contentinfo">
+        <div class="article-author-bottom">
+          <img src="http://localhost:4000/images/bio-photo.jpg" class="bio-photo" alt="Hugo Santos bio photo"></a>
+<h3>Hugo Santos</h3>
+<p></p>
+
+
+
+<a href="http://linkedin.com/in/hugocaracol" class="author-social" target="_blank"><i class="icon-linkedin"></i> LinkedIn</a>
+
+<a href="http://github.com/hugocaracol" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+
+
+        </div>
+        <p class="byline"><strong>Bitwise and CONSTANT values</strong> was published on <time datetime="2013-02-15T22:29:00+00:00">February 15, 2013</time> by <a href="http://localhost:4000/about" title="About Hugo Santos">Hugo Santos</a>.</p>
+      </footer>
+    </div><!-- /.article-wrap -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrap">
+  <div class="related-articles">
+  <h4>You might also enjoy <small class="pull-right">(<a href="http://localhost:4000/posts/">View all posts</a>)</small></h4>
+    <ul>
+    
+      
+      
+        
+      
+      
+    
+      
+      
+        
+      
+      
+    
+      
+      
+        
+      
+      
+    
+    </ul>
+    <hr />
+  </div><!-- /.related-articles -->
+  <footer>
+    <span>&copy; 2014 Hugo Santos. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://localhost:4000/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://localhost:4000/assets/js/scripts.min.js"></script>
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  var _gaq = _gaq || [];
+  var pluginUrl = 
+ '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-127045-13']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+	        
+
+</body>
+</html>

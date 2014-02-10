@@ -1,0 +1,262 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Making of a simple debugger &#8211; Never Pop</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Making of a simple debugger">
+<meta property="og:description" content="Describe your website.">
+<meta property="og:url" content="http://localhost:4000/debugging/making-of-a-simple-debugger/">
+<meta property="og:site_name" content="Never Pop">
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/debugging/making-of-a-simple-debugger/">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Never Pop Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Webfonts -->
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.min.css">
+
+<!--[if (lt IE 9) & (!IEMobile)]>
+<link rel="stylesheet" href="http://localhost:4000/assets/css/ie.min.css">
+<![endif]-->
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="http://localhost:4000/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://localhost:4000/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body class="post">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="http://localhost:4000">Never Pop</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation">
+		    <ul>
+		        
+				<li><a href="http://localhost:4000/about/" >About</a></li>
+		        
+				<li><a href="http://localhost:4000/posts/" >Posts</a></li>
+		        
+		        <li><i class="icon-feed"></i> <a href="http://localhost:4000/feed.xml" title="Atom/RSS feed">Feed</a>
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+
+<div id="main" role="main">
+  <div class="article-author-side">
+    <img src="http://localhost:4000/images/bio-photo.jpg" class="bio-photo" alt="Hugo Santos bio photo"></a>
+<h3>Hugo Santos</h3>
+<p></p>
+
+
+
+<a href="http://linkedin.com/in/hugocaracol" class="author-social" target="_blank"><i class="icon-linkedin"></i> LinkedIn</a>
+
+<a href="http://github.com/hugocaracol" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+
+
+  </div>
+  <article>
+    <div class="headline-wrap">
+      <h1>Making of a simple debugger</h1>
+      <h2></h2>
+    </div><!--/ .headline-wrap -->
+    <div class="article-wrap">
+      <p>I was introduced to sys.settrace in the Udacity course on debugging. Python docs say:
+&gt;Set the system’s trace function, which allows you to implement a Python source code debugger in Python. </p>
+
+<p>With this function, is very easy to make a simple debugger. Even if not implemented to use in a production environment, 
+it’s still a funny thing to do.</p>
+
+<p>To make use of this, a trace function must be created. A trace function has 3 arguments: 
+<em>frame</em>, <em>event</em> and <em>arg</em>. <em>frame</em> represents the current stack. <em>event</em> is a string like 
+‘call’, ‘line’, ‘return’, ‘exception’ and some others. <em>arg</em> is used when event is ‘return’. </p>
+
+<!-- more -->
+
+<h3 id="events">Events</h3>
+
+<ul>
+  <li>‘call’ - triggered when a function is called</li>
+  <li>‘line’ - triggered when the interpreter is about to execute a new line of code</li>
+  <li>‘return’ - triggered when a function is about to return. The return value is stored in <em>arg</em>.</li>
+  <li>‘exception’ - triggered when an exception occurrs. A tuple like (exception, value, traceback) is stored in <em>arg</em>.</li>
+</ul>
+
+<p>In the example that follows I use the first 3 events.</p>
+
+<h3 id="debugger">Debugger</h3>
+
+<div class="highlight"><pre><code class="python"><span class="k">class</span> <span class="nc">Debugger</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">prev_vars</span> <span class="o">=</span> <span class="p">{}</span>        
+
+    <span class="k">def</span> <span class="nf">_get_changed_vars</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f_locals</span><span class="p">):</span>
+        <span class="n">changed_vars</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">f_locals</span><span class="o">.</span><span class="n">iteritems</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">prev_vars</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">v</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">prev_vars</span><span class="p">[</span><span class="n">k</span><span class="p">]:</span>
+                    <span class="n">changed_vars</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">changed_vars</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+            <span class="c"># updates self.vars to the dictionary of current variable</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">prev_vars</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+        <span class="k">return</span> <span class="n">changed_vars</span>
+
+    <span class="k">def</span> <span class="nf">track</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">frame</span><span class="p">,</span> <span class="n">event</span><span class="p">,</span> <span class="n">arg</span><span class="p">):</span>
+        <span class="n">prefix</span> <span class="o">=</span> <span class="s">&quot;[DEBUG] &quot;</span>
+        <span class="k">if</span> <span class="n">event</span> <span class="o">==</span> <span class="s">&#39;line&#39;</span><span class="p">:</span>
+            <span class="k">print</span> <span class="n">prefix</span> <span class="o">+</span> <span class="s">&quot;Line no: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">frame</span><span class="o">.</span><span class="n">f_lineno</span>
+            <span class="n">changed_vars</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_changed_vars</span><span class="p">(</span><span class="n">frame</span><span class="o">.</span><span class="n">f_locals</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">changed_vars</span><span class="p">:</span>
+                <span class="k">print</span> <span class="n">prefix</span> <span class="o">+</span> <span class="s">&quot;Changed variables: </span><span class="si">%s</span><span class="s"> &quot;</span> <span class="o">%</span> <span class="n">changed_vars</span>
+        <span class="k">elif</span> <span class="n">event</span> <span class="o">==</span> <span class="s">&#39;call&#39;</span><span class="p">:</span>
+            <span class="k">print</span> <span class="n">prefix</span> <span class="o">+</span> <span class="s">&quot;Called: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">frame</span><span class="o">.</span><span class="n">f_code</span><span class="o">.</span><span class="n">co_name</span>
+        <span class="k">elif</span> <span class="n">event</span> <span class="o">==</span> <span class="s">&#39;return&#39;</span><span class="p">:</span>
+            <span class="k">print</span> <span class="n">prefix</span> <span class="o">+</span> <span class="s">&quot;Exiting: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">frame</span><span class="o">.</span><span class="n">f_code</span><span class="o">.</span><span class="n">co_name</span>
+            <span class="k">print</span> <span class="n">prefix</span> <span class="o">+</span> <span class="s">&quot;  Returning: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">arg</span>
+
+        <span class="c"># for every event, the trace function is returned</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">track</span>
+</code></pre></div>
+
+<p>I’ve implemented a class because I wanted to track the value change of variables (just the function <em>track</em> alone should be enough to get the gist of it).<br />
+The <strong>track</strong> function does all the magic. As you can see, it has the 3 arguments pointed before.<br />
+When some event occurrs this function is triggered. We watch for the event and act accordingly, printing variables, lines or return values. 
+<strong>This function must return itself</strong> in order to keep the trace going.
+I have not implemented breakpoints but with the line numbers it’s a very easy thing to do.
+<strong>_get_changed_vars</strong> function is just a helper function I use to get the new or updated variables.</p>
+
+<p>Now, to use our shiny debugger we create a new instance of our class and pass <em>debugger.track</em> as a parameter to <em>settrace</em>. Then we invoke the code 
+we want to debug and in the end we disable <em>settrace</em>.</p>
+
+<div class="highlight"><pre><code class="python"><span class="n">debugger</span> <span class="o">=</span> <span class="n">Debugger</span><span class="p">()</span>
+
+<span class="n">sys</span><span class="o">.</span><span class="n">settrace</span><span class="p">(</span><span class="n">debugger</span><span class="o">.</span><span class="n">track</span><span class="p">)</span>
+<span class="c"># call your function here</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">settrace</span><span class="p">(</span><span class="bp">None</span><span class="p">)</span>
+</code></pre></div>
+
+<p>This debugger can be extended to infer invariants (one of the exercises on the debugging course). Watching how variables change, can give us hints about 
+their ranges (min, max). Use it but don’t take it too seriously ;-)</p>
+
+      <hr />
+      <footer role="contentinfo">
+        <div class="article-author-bottom">
+          <img src="http://localhost:4000/images/bio-photo.jpg" class="bio-photo" alt="Hugo Santos bio photo"></a>
+<h3>Hugo Santos</h3>
+<p></p>
+
+
+
+<a href="http://linkedin.com/in/hugocaracol" class="author-social" target="_blank"><i class="icon-linkedin"></i> LinkedIn</a>
+
+<a href="http://github.com/hugocaracol" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+
+
+        </div>
+        <p class="byline"><strong>Making of a simple debugger</strong> was published on <time datetime="2013-02-12T23:50:00+00:00">February 12, 2013</time> by <a href="http://localhost:4000/about" title="About Hugo Santos">Hugo Santos</a>.</p>
+      </footer>
+    </div><!-- /.article-wrap -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrap">
+  <div class="related-articles">
+  <h4>You might also enjoy <small class="pull-right">(<a href="http://localhost:4000/posts/">View all posts</a>)</small></h4>
+    <ul>
+    
+      
+      
+        
+      
+      
+    
+      
+      
+        
+      
+      
+    
+      
+      
+        
+      
+      
+    
+    </ul>
+    <hr />
+  </div><!-- /.related-articles -->
+  <footer>
+    <span>&copy; 2014 Hugo Santos. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://localhost:4000/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://localhost:4000/assets/js/scripts.min.js"></script>
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  var _gaq = _gaq || [];
+  var pluginUrl = 
+ '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-127045-13']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+	        
+
+</body>
+</html>

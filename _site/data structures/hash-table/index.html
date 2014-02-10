@@ -1,0 +1,339 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Hash Table &#8211; Never Pop</title>
+<meta name="description" content="">
+<meta name="keywords" content="hash table, python">
+
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hash Table">
+<meta property="og:description" content="Describe your website.">
+<meta property="og:url" content="http://localhost:4000/data%20structures/hash-table/">
+<meta property="og:site_name" content="Never Pop">
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/data%20structures/hash-table/">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Never Pop Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Webfonts -->
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.min.css">
+
+<!--[if (lt IE 9) & (!IEMobile)]>
+<link rel="stylesheet" href="http://localhost:4000/assets/css/ie.min.css">
+<![endif]-->
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="http://localhost:4000/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://localhost:4000/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body class="post">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="http://localhost:4000">Never Pop</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation">
+		    <ul>
+		        
+				<li><a href="http://localhost:4000/about/" >About</a></li>
+		        
+				<li><a href="http://localhost:4000/posts/" >Posts</a></li>
+		        
+		        <li><i class="icon-feed"></i> <a href="http://localhost:4000/feed.xml" title="Atom/RSS feed">Feed</a>
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+
+<div id="main" role="main">
+  <div class="article-author-side">
+    <img src="http://localhost:4000/images/bio-photo.jpg" class="bio-photo" alt="Hugo Santos bio photo"></a>
+<h3>Hugo Santos</h3>
+<p></p>
+
+
+
+<a href="http://linkedin.com/in/hugocaracol" class="author-social" target="_blank"><i class="icon-linkedin"></i> LinkedIn</a>
+
+<a href="http://github.com/hugocaracol" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+
+
+  </div>
+  <article>
+    <div class="headline-wrap">
+      <h1>Hash Table</h1>
+      <h2></h2>
+    </div><!--/ .headline-wrap -->
+    <div class="article-wrap">
+      <p>A hash table is a data structure that can map keys to values (objects). If we want to search for a value associated with a key in a table with millions of records, this data structure can be put in a good use.
+<!-- more -->
+##How it works</p>
+
+<p>The hash table has a defined number of places where keys and values can be stored. These places are called buckets. Assuming our table has 10 buckets, that means we have 10 possible places where we can store our data. The number of buckets can be increased as the table gets a low number of available buckets, but this situation is out of the scope of this post.</p>
+
+<p>When we want to store a key/value pair, the hash table needs to find a place. In order to do that it uses a hash function that transforms the key into a number. With that number it computes an index on the table as number_returned_by_hash_function  % number_of_buckets. For example, for a number of buckets of 10 and a number returned by the hash function of 5604, the index of the table is 4.</p>
+
+<p>After the index is determined, the algorithm tries to store the value. What about if the table on that index already has some value? If that happens we call it a “collision”. There are some techniques that can be used to fix that.</p>
+
+<h2 id="collision-resolution">Collision resolution</h2>
+<p>There are two popular collision resolution techniques: Separate Chaining and Open Addressing.
+###Separate Chaining
+Each bucket is a pointer to a linked list of key/value pairs. In this way each pair is put in the end of the list, creating a linked list.
+###Open Addressing
+Each bucket has only a key/value pair. If the bucket is already filled, the algorithm must find a new place to store the key/value. For this discovery Linear Probing and Quadratic Probing can be used.
+####Linear Probing
+As the bucket is aready used, the next bucket will be the next possibility. If this is also already used, it tries the next one, and so on, until there are no buckets available.</p>
+
+<div class="highlight"><pre><code class="python"><span class="n">pos</span> <span class="o">=</span> <span class="p">(</span><span class="n">offset</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_buckets</span>
+</code></pre></div>
+
+<h4 id="quadratic-probing">Quadratic Probing</h4>
+<p>As the bucket is already used, the interval between buckets is increased in a quadratic way until there are no buckets available.</p>
+
+<div class="highlight"><pre><code class="python"><span class="n">pos</span> <span class="o">=</span> <span class="p">(</span><span class="n">offset</span> <span class="o">+</span> <span class="n">n_try</span> <span class="o">*</span> <span class="n">n_try</span><span class="p">)</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_buckets</span>
+</code></pre></div>
+
+<p>These collision resolution techniques are used for setting and getting.</p>
+
+<p>Below is my implementation (Python) in a way I could understand.</p>
+
+<div class="highlight"><pre><code class="python"><span class="k">class</span> <span class="nc">Hash</span><span class="p">:</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    A class for experimenting how to create hash tables.</span>
+
+<span class="sd">    MyHash uses djb2 hash function for offset calculation</span>
+<span class="sd">    and separate chaining for collision resolution.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_buckets</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_buckets</span> <span class="o">=</span> <span class="n">n_buckets</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hashTable</span> <span class="o">=</span> <span class="p">[</span><span class="bp">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">n_buckets</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fn_collisions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">collisions_separate_chaining</span>
+        <span class="c"># open addressing</span>
+        <span class="c"># self.fn_collisions = self.collisions_linear_probing</span>
+        <span class="c"># self.fn_collisions = self.collisions_quadratic_probing</span>
+
+    <span class="k">def</span> <span class="nf">_hashthis</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="n">hash_djb2</span> <span class="o">=</span> <span class="mi">5381</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">key</span><span class="p">)):</span>
+            <span class="n">hash_djb2</span> <span class="o">=</span> <span class="p">((</span><span class="n">hash_djb2</span> <span class="o">&lt;&lt;</span> <span class="mi">5</span><span class="p">)</span> <span class="o">+</span> <span class="n">hash_djb2</span><span class="p">)</span> <span class="o">+</span> <span class="nb">ord</span><span class="p">(</span><span class="n">key</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">hash_djb2</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_buckets</span>
+
+    <span class="k">def</span> <span class="nf">set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="n">offset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hashthis</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fn_collisions</span><span class="p">(</span><span class="s">&#39;SET&#39;</span><span class="p">,</span> <span class="n">offset</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="n">offset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hashthis</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">hashTable</span><span class="p">[</span><span class="n">offset</span><span class="p">]</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">None</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fn_collisions</span><span class="p">(</span><span class="s">&#39;GET&#39;</span><span class="p">,</span> <span class="n">offset</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">collisions_separate_chaining</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">action</span><span class="p">,</span> <span class="n">offset</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">action</span> <span class="o">==</span> <span class="s">&#39;SET&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">hashTable</span><span class="p">[</span><span class="n">offset</span><span class="p">]</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">hashTable</span><span class="p">[</span><span class="n">offset</span><span class="p">]</span> <span class="o">=</span> <span class="p">[(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hashTable</span><span class="p">[</span><span class="n">offset</span><span class="p">])):</span>
+                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">hashTable</span><span class="p">[</span><span class="n">offset</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">key</span><span class="p">:</span>
+                        <span class="c"># updates the value of existing key</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">hashTable</span><span class="p">[</span><span class="n">offset</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+                        <span class="k">return</span> <span class="bp">True</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">hashTable</span><span class="p">[</span><span class="n">offset</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+            <span class="k">return</span> <span class="bp">True</span>
+        <span class="k">elif</span> <span class="n">action</span> <span class="o">==</span> <span class="s">&#39;GET&#39;</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">hashTable</span><span class="p">[</span><span class="n">offset</span><span class="p">]:</span>
+                <span class="k">if</span> <span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">key</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">return</span> <span class="bp">None</span>
+        <span class="k">return</span> <span class="bp">False</span>
+
+    <span class="k">def</span> <span class="nf">collisions_linear_probing</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">action</span><span class="p">,</span> <span class="n">offset</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">action</span> <span class="o">==</span> <span class="s">&#39;SET&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">hashTable</span><span class="p">[</span><span class="n">offset</span><span class="p">]</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">hashTable</span><span class="p">[</span><span class="n">offset</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+                <span class="k">return</span> <span class="bp">True</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">pos</span> <span class="o">=</span> <span class="p">(</span><span class="n">offset</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_buckets</span>
+                <span class="k">while</span> <span class="n">pos</span> <span class="o">!=</span> <span class="n">offset</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">hashTable</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">hashTable</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+                        <span class="k">return</span> <span class="bp">True</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">pos</span> <span class="o">=</span> <span class="p">(</span><span class="n">pos</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_buckets</span>
+                <span class="c"># couldn&#39;t find any available buckets</span>
+                <span class="k">return</span> <span class="bp">False</span>
+        <span class="k">elif</span> <span class="n">action</span> <span class="o">==</span> <span class="s">&#39;GET&#39;</span><span class="p">:</span>
+            <span class="n">pos</span> <span class="o">=</span> <span class="p">(</span><span class="n">offset</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_buckets</span>
+            <span class="k">while</span> <span class="n">pos</span> <span class="o">!=</span> <span class="n">offset</span><span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">hashTable</span><span class="p">[</span><span class="n">pos</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">key</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">hashTable</span><span class="p">[</span><span class="n">pos</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">pos</span> <span class="o">=</span> <span class="p">(</span><span class="n">pos</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_buckets</span>
+            <span class="k">return</span> <span class="bp">None</span>
+        <span class="k">return</span> <span class="bp">False</span>
+
+    <span class="k">def</span> <span class="nf">collisions_quadratic_probing</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">action</span><span class="p">,</span> <span class="n">offset</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">action</span> <span class="o">==</span> <span class="s">&#39;SET&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">hashTable</span><span class="p">[</span><span class="n">offset</span><span class="p">]</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">hashTable</span><span class="p">[</span><span class="n">offset</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+                <span class="k">return</span> <span class="bp">True</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">n_try</span> <span class="o">=</span> <span class="mi">1</span>
+                <span class="n">pos</span> <span class="o">=</span> <span class="p">(</span><span class="n">offset</span> <span class="o">+</span> <span class="n">n_try</span> <span class="o">*</span> <span class="n">n_try</span><span class="p">)</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_buckets</span>
+                <span class="k">while</span> <span class="n">pos</span> <span class="o">!=</span> <span class="n">offset</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">hashTable</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">hashTable</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+                        <span class="k">return</span> <span class="bp">True</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">n_try</span> <span class="o">+=</span> <span class="mi">1</span>
+                        <span class="n">pos</span> <span class="o">=</span> <span class="p">(</span><span class="n">pos</span> <span class="o">+</span> <span class="n">n_try</span> <span class="o">*</span> <span class="n">n_try</span><span class="p">)</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_buckets</span>
+                <span class="c"># couldn&#39;t find any available buckets</span>
+                <span class="k">return</span> <span class="bp">False</span>
+        <span class="k">elif</span> <span class="n">action</span> <span class="o">==</span> <span class="s">&#39;GET&#39;</span><span class="p">:</span>
+            <span class="n">n_try</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="n">pos</span> <span class="o">=</span> <span class="p">(</span><span class="n">offset</span> <span class="o">+</span> <span class="n">n_try</span> <span class="o">*</span> <span class="n">n_try</span><span class="p">)</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_buckets</span>
+
+            <span class="k">while</span> <span class="n">pos</span> <span class="o">!=</span> <span class="n">offset</span><span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">hashTable</span><span class="p">[</span><span class="n">pos</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">key</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">hashTable</span><span class="p">[</span><span class="n">pos</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">n_try</span> <span class="o">+=</span> <span class="mi">1</span>
+                    <span class="n">pos</span> <span class="o">=</span> <span class="p">(</span><span class="n">pos</span> <span class="o">+</span> <span class="n">n_try</span> <span class="o">*</span> <span class="n">n_try</span><span class="p">)</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_buckets</span>
+            <span class="k">return</span> <span class="bp">None</span>
+</code></pre></div>
+
+<p>In the creation of the object Hash, separate chaining is used for collision resolution. If you want to try the other two, please uncomment the line you want.</p>
+
+<div class="highlight"><pre><code class="python"><span class="bp">self</span><span class="o">.</span><span class="n">fn_collisions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">collisions_separate_chaining</span>
+<span class="c"># open addressing</span>
+<span class="c"># self.fn_collisions = self.collisions_linear_probing</span>
+<span class="c"># self.fn_collisions = self.collisions_quadratic_probing</span>
+</code></pre></div>
+
+<p>Usage:</p>
+
+<div class="highlight"><pre><code class="python"><span class="n">ht</span> <span class="o">=</span> <span class="n">Hash</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>  <span class="c"># 10 buckets</span>
+<span class="n">ht</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s">&#39;name&#39;</span><span class="p">,</span> <span class="s">&#39;Hugo&#39;</span><span class="p">)</span>
+<span class="n">ht</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s">&#39;age&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">ht</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;name&#39;</span><span class="p">)</span>  <span class="c"># Hugo</span>
+<span class="k">print</span> <span class="n">ht</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;age&#39;</span><span class="p">)</span>  <span class="c"># 100</span>
+</code></pre></div>
+
+
+      <hr />
+      <footer role="contentinfo">
+        <div class="article-author-bottom">
+          <img src="http://localhost:4000/images/bio-photo.jpg" class="bio-photo" alt="Hugo Santos bio photo"></a>
+<h3>Hugo Santos</h3>
+<p></p>
+
+
+
+<a href="http://linkedin.com/in/hugocaracol" class="author-social" target="_blank"><i class="icon-linkedin"></i> LinkedIn</a>
+
+<a href="http://github.com/hugocaracol" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+
+
+        </div>
+        <p class="byline"><strong>Hash Table</strong> was published on <time datetime="2012-11-30T00:00:00+00:00">November 30, 2012</time> by <a href="http://localhost:4000/about" title="About Hugo Santos">Hugo Santos</a>.</p>
+      </footer>
+    </div><!-- /.article-wrap -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrap">
+  <div class="related-articles">
+  <h4>You might also enjoy <small class="pull-right">(<a href="http://localhost:4000/posts/">View all posts</a>)</small></h4>
+    <ul>
+    
+      
+      
+        
+      
+      
+    
+      
+      
+        
+      
+      
+    
+      
+      
+        
+      
+      
+    
+    </ul>
+    <hr />
+  </div><!-- /.related-articles -->
+  <footer>
+    <span>&copy; 2014 Hugo Santos. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://localhost:4000/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://localhost:4000/assets/js/scripts.min.js"></script>
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  var _gaq = _gaq || [];
+  var pluginUrl = 
+ '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-127045-13']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+	        
+
+</body>
+</html>

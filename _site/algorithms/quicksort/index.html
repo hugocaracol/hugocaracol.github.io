@@ -1,0 +1,308 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Quicksort &#8211; Never Pop</title>
+<meta name="description" content="">
+<meta name="keywords" content="python, sort">
+
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Quicksort">
+<meta property="og:description" content="Describe your website.">
+<meta property="og:url" content="http://localhost:4000/algorithms/quicksort/">
+<meta property="og:site_name" content="Never Pop">
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/algorithms/quicksort/">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Never Pop Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Webfonts -->
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.min.css">
+
+<!--[if (lt IE 9) & (!IEMobile)]>
+<link rel="stylesheet" href="http://localhost:4000/assets/css/ie.min.css">
+<![endif]-->
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="http://localhost:4000/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://localhost:4000/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body class="post">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="http://localhost:4000">Never Pop</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation">
+		    <ul>
+		        
+				<li><a href="http://localhost:4000/about/" >About</a></li>
+		        
+				<li><a href="http://localhost:4000/posts/" >Posts</a></li>
+		        
+		        <li><i class="icon-feed"></i> <a href="http://localhost:4000/feed.xml" title="Atom/RSS feed">Feed</a>
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+
+<div id="main" role="main">
+  <div class="article-author-side">
+    <img src="http://localhost:4000/images/bio-photo.jpg" class="bio-photo" alt="Hugo Santos bio photo"></a>
+<h3>Hugo Santos</h3>
+<p></p>
+
+
+
+<a href="http://linkedin.com/in/hugocaracol" class="author-social" target="_blank"><i class="icon-linkedin"></i> LinkedIn</a>
+
+<a href="http://github.com/hugocaracol" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+
+
+  </div>
+  <article>
+    <div class="headline-wrap">
+      <h1>Quicksort</h1>
+      <h2></h2>
+    </div><!--/ .headline-wrap -->
+    <div class="article-wrap">
+      <p>The complexity of this algorithm is O(n log n). This is a divide and conquer algorithm. We take smaller sub-lists and sort them until every element in the list is in the right place.</p>
+
+<p>We start by sorting the leftmost, the rightmost and the middle elements, putting those 3 elements in the right place. The median element stays in the middle assuming the function of pivot. After choosing the pivot (like a threshold), all elements below that element stay or move to the left and all elements above stay or move to the right. This operation is called partitioning. We then take the sub-list on the left and the sub-list on the right and do recursive calls until these sub-lists are sorted.
+<!-- more -->
+I use 2 functions:</p>
+
+<ul>
+  <li>quicksort</li>
+  <li>partitioning</li>
+</ul>
+
+<h2 id="function-quicksort">function quicksort</h2>
+
+<p>This function is called with 3 main arguments. The list to sort and 2 more arguments that determine the initial and ending indexes of the sub-list. It’s in this function that we have the stop conditions of the recursive calls.</p>
+
+<div class="highlight"><pre><code class="python"><span class="k">def</span> <span class="nf">quicksort</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">pini</span><span class="p">,</span> <span class="n">pend</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+
+    <span class="n">n</span> <span class="o">=</span> <span class="n">pend</span> <span class="o">-</span> <span class="n">pini</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">debug</span><span class="p">:</span>
+            <span class="k">print</span> <span class="s">&#39;Sorted &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="n">pini</span><span class="p">:</span><span class="n">pend</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="k">return</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">l</span><span class="p">[</span><span class="n">pini</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">l</span><span class="p">[</span><span class="n">pend</span><span class="p">]:</span>
+            <span class="n">l</span><span class="p">[</span><span class="n">pend</span><span class="p">],</span> <span class="n">l</span><span class="p">[</span><span class="n">pini</span><span class="p">]</span> <span class="o">=</span> <span class="n">l</span><span class="p">[</span><span class="n">pini</span><span class="p">],</span> <span class="n">l</span><span class="p">[</span><span class="n">pend</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">debug</span><span class="p">:</span>
+            <span class="k">print</span> <span class="s">&#39;Sorted &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="n">pini</span><span class="p">:</span><span class="n">pend</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="k">return</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="p">(</span><span class="n">pend</span> <span class="o">+</span> <span class="n">pini</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>  <span class="c"># pivot</span>
+    <span class="c"># sort 3 elements</span>
+    <span class="k">if</span> <span class="n">l</span><span class="p">[</span><span class="n">pini</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">l</span><span class="p">[</span><span class="n">m</span><span class="p">]:</span>
+        <span class="n">l</span><span class="p">[</span><span class="n">pini</span><span class="p">],</span> <span class="n">l</span><span class="p">[</span><span class="n">m</span><span class="p">]</span> <span class="o">=</span> <span class="n">l</span><span class="p">[</span><span class="n">m</span><span class="p">],</span> <span class="n">l</span><span class="p">[</span><span class="n">pini</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">l</span><span class="p">[</span><span class="n">m</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">l</span><span class="p">[</span><span class="n">pend</span><span class="p">]:</span>
+        <span class="n">l</span><span class="p">[</span><span class="n">m</span><span class="p">],</span> <span class="n">l</span><span class="p">[</span><span class="n">pend</span><span class="p">]</span> <span class="o">=</span> <span class="n">l</span><span class="p">[</span><span class="n">pend</span><span class="p">],</span> <span class="n">l</span><span class="p">[</span><span class="n">m</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">l</span><span class="p">[</span><span class="n">pini</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">l</span><span class="p">[</span><span class="n">m</span><span class="p">]:</span>
+        <span class="n">l</span><span class="p">[</span><span class="n">pini</span><span class="p">],</span> <span class="n">l</span><span class="p">[</span><span class="n">m</span><span class="p">]</span> <span class="o">=</span> <span class="n">l</span><span class="p">[</span><span class="n">m</span><span class="p">],</span> <span class="n">l</span><span class="p">[</span><span class="n">pini</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">debug</span><span class="p">:</span>
+            <span class="k">print</span> <span class="s">&#39;Sorted &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="n">pini</span><span class="p">:</span><span class="n">pend</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="k">return</span>
+
+    <span class="n">ind_i</span> <span class="o">=</span> <span class="n">pini</span>
+    <span class="n">ind_j</span> <span class="o">=</span> <span class="n">pend</span>
+
+    <span class="n">m</span> <span class="o">=</span> <span class="n">partitioning</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">pini</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">pend</span><span class="p">,</span> <span class="n">debug</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">debug</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s">&#39;Call quicksort with Left sub-list: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="n">pini</span><span class="p">:</span> <span class="n">m</span><span class="p">])</span>
+    <span class="n">quicksort</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">pini</span><span class="p">,</span> <span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">debug</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">debug</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s">&#39;Call quicksort with Right sub-list: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:</span><span class="n">pend</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="n">quicksort</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">pend</span><span class="p">,</span> <span class="n">debug</span><span class="p">)</span>
+</code></pre></div>
+
+<h2 id="function-partitioning">function partitioning</h2>
+
+<p>This function is called with 4 main arguments. The list to sort and 3 more arguments that determine the initial, the middle and ending indexes of the sub-list. This is the function that puts the elements in the right place, below and above the pivot.</p>
+
+<div class="highlight"><pre><code class="python"><span class="k">def</span> <span class="nf">partitioning</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">pini</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">pend</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+
+    <span class="k">if</span> <span class="n">debug</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s">&#39;Partitioning: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="n">pini</span><span class="p">:</span><span class="n">pend</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span> <span class="o">+</span> \
+            <span class="s">&#39; with pivot l[&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#39;]=&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="n">m</span><span class="p">])</span>
+
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">pini</span>
+        <span class="k">while</span> <span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">l</span><span class="p">[</span><span class="n">m</span><span class="p">]</span> <span class="ow">and</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m</span><span class="p">:</span>
+            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="n">pend</span>
+        <span class="k">while</span> <span class="n">l</span><span class="p">[</span><span class="n">m</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">l</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="ow">and</span> <span class="n">j</span> <span class="o">&gt;</span> <span class="n">m</span><span class="p">:</span>
+            <span class="n">j</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">m</span> <span class="ow">and</span> <span class="n">j</span> <span class="o">==</span> <span class="n">m</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">debug</span><span class="p">:</span>
+                <span class="k">print</span> <span class="s">&#39;Finished partitioning &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="n">pini</span><span class="p">:</span><span class="n">pend</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
+            <span class="k">return</span> <span class="n">m</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">m</span> <span class="ow">and</span> <span class="n">j</span> <span class="o">!=</span> <span class="n">m</span><span class="p">:</span>
+            <span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">l</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">l</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="n">m</span><span class="p">:</span>  <span class="c"># 1st half is sorted</span>
+            <span class="k">if</span> <span class="n">debug</span><span class="p">:</span>
+                <span class="k">print</span> <span class="s">&#39;1st half (&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="n">pini</span><span class="p">:</span><span class="n">m</span><span class="p">])</span> <span class="o">+</span> <span class="s">&#39;) is below pivot. &#39;</span> <span class="o">+</span> \
+                    <span class="s">&#39;Moving pivot to index &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+            <span class="n">l</span><span class="p">[</span><span class="n">m</span><span class="p">],</span> <span class="n">l</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">l</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">l</span><span class="p">[</span><span class="n">m</span><span class="p">]</span>
+            <span class="n">m</span> <span class="o">=</span> <span class="n">j</span>
+            <span class="k">if</span> <span class="n">debug</span><span class="p">:</span>
+                <span class="k">print</span> <span class="s">&#39;Updated list &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">j</span> <span class="o">==</span> <span class="n">m</span><span class="p">:</span>  <span class="c"># 2nd half is sorted</span>
+            <span class="k">if</span> <span class="n">debug</span><span class="p">:</span>
+                <span class="k">print</span> <span class="s">&#39;2nd half (&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:</span><span class="n">pend</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="s">&#39;)is above &#39;</span> <span class="o">+</span> \
+                    <span class="s">&#39;pivot. Moving pivot to index &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="n">l</span><span class="p">[</span><span class="n">m</span><span class="p">],</span> <span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">l</span><span class="p">[</span><span class="n">m</span><span class="p">]</span>
+            <span class="n">m</span> <span class="o">=</span> <span class="n">i</span>
+            <span class="k">if</span> <span class="n">debug</span><span class="p">:</span>
+                <span class="k">print</span> <span class="s">&#39;Updated list &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+</code></pre></div>
+
+<h2 id="running-quicksort">Running quicksort</h2>
+<p>The code above contains a lot of verbose text which is useful when understanding how this algorithm works. Let’s run a quicksort with debug mode set to True.</p>
+
+<div class="highlight"><pre><code class="python"><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="k">print</span> <span class="s">&#39;unsorted: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+<span class="n">quicksort</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">&#39;sorted: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Output</p>
+
+<div class="highlight"><pre><code class="python"><span class="n">unsorted</span><span class="p">:</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">Partitioning</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span> <span class="k">with</span> <span class="n">pivot</span> <span class="n">l</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">=</span><span class="mi">3</span>
+<span class="mi">2</span><span class="n">nd</span> <span class="n">half</span> <span class="p">([</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span><span class="ow">is</span> <span class="n">above</span> <span class="n">pivot</span><span class="o">.</span> <span class="n">Moving</span> <span class="n">pivot</span> <span class="n">to</span> <span class="n">index</span> <span class="mi">2</span>
+<span class="n">Updated</span> <span class="nb">list</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+<span class="n">Finished</span> <span class="n">partitioning</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+<span class="n">Call</span> <span class="n">quicksort</span> <span class="k">with</span> <span class="n">Left</span> <span class="n">sub</span><span class="o">-</span><span class="nb">list</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">Sorted</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">Call</span> <span class="n">quicksort</span> <span class="k">with</span> <span class="n">Right</span> <span class="n">sub</span><span class="o">-</span><span class="nb">list</span><span class="p">:</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+<span class="n">Partitioning</span><span class="p">:</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span> <span class="k">with</span> <span class="n">pivot</span> <span class="n">l</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">=</span><span class="mi">7</span>
+<span class="mi">1</span><span class="n">st</span> <span class="n">half</span> <span class="p">([</span><span class="mi">6</span><span class="p">])</span> <span class="ow">is</span> <span class="n">below</span> <span class="n">pivot</span><span class="o">.</span> <span class="n">Moving</span> <span class="n">pivot</span> <span class="n">to</span> <span class="n">index</span> <span class="mi">5</span>
+<span class="n">Updated</span> <span class="nb">list</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+<span class="n">Finished</span> <span class="n">partitioning</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+<span class="n">Call</span> <span class="n">quicksort</span> <span class="k">with</span> <span class="n">Left</span> <span class="n">sub</span><span class="o">-</span><span class="nb">list</span><span class="p">:</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">Sorted</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="n">Call</span> <span class="n">quicksort</span> <span class="k">with</span> <span class="n">Right</span> <span class="n">sub</span><span class="o">-</span><span class="nb">list</span><span class="p">:</span> <span class="p">[</span><span class="mi">8</span><span class="p">]</span>
+<span class="n">Sorted</span> <span class="p">[</span><span class="mi">8</span><span class="p">]</span>
+<span class="nb">sorted</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+</code></pre></div>
+
+
+      <hr />
+      <footer role="contentinfo">
+        <div class="article-author-bottom">
+          <img src="http://localhost:4000/images/bio-photo.jpg" class="bio-photo" alt="Hugo Santos bio photo"></a>
+<h3>Hugo Santos</h3>
+<p></p>
+
+
+
+<a href="http://linkedin.com/in/hugocaracol" class="author-social" target="_blank"><i class="icon-linkedin"></i> LinkedIn</a>
+
+<a href="http://github.com/hugocaracol" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+
+
+        </div>
+        <p class="byline"><strong>Quicksort</strong> was published on <time datetime="2012-12-26T00:00:00+00:00">December 26, 2012</time> by <a href="http://localhost:4000/about" title="About Hugo Santos">Hugo Santos</a>.</p>
+      </footer>
+    </div><!-- /.article-wrap -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrap">
+  <div class="related-articles">
+  <h4>You might also enjoy <small class="pull-right">(<a href="http://localhost:4000/posts/">View all posts</a>)</small></h4>
+    <ul>
+    
+      
+      
+        
+      
+      
+    
+      
+      
+        
+      
+      
+    
+      
+      
+        
+      
+      
+    
+    </ul>
+    <hr />
+  </div><!-- /.related-articles -->
+  <footer>
+    <span>&copy; 2014 Hugo Santos. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://localhost:4000/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://localhost:4000/assets/js/scripts.min.js"></script>
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  var _gaq = _gaq || [];
+  var pluginUrl = 
+ '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-127045-13']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+	        
+
+</body>
+</html>

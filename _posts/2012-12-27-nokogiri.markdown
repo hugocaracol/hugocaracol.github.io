@@ -1,0 +1,16 @@
+---
+layout: post
+title: Nokogiri
+tags:
+- parsers
+- xml
+status: publish
+published: true
+categories: [random]
+---
+Today I found [Nokogiri](http://nokogiri.org/).
+>Nokogiri is an HTML, XML, SAX, and Reader parser. Among Nokogiri’s many features is the ability to search documents via XPath or CSS3 selectors.
+
+But the description above is not the reason of this post. This is:
+
+>XML is like violence - if it doesn’t solve your problems, you are not using enough of it.

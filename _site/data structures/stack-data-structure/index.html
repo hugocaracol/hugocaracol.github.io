@@ -1,0 +1,239 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Stack data structure &#8211; Never Pop</title>
+<meta name="description" content="">
+<meta name="keywords" content="python, stack">
+
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Stack data structure">
+<meta property="og:description" content="Describe your website.">
+<meta property="og:url" content="http://localhost:4000/data%20structures/stack-data-structure/">
+<meta property="og:site_name" content="Never Pop">
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/data%20structures/stack-data-structure/">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Never Pop Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Webfonts -->
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.min.css">
+
+<!--[if (lt IE 9) & (!IEMobile)]>
+<link rel="stylesheet" href="http://localhost:4000/assets/css/ie.min.css">
+<![endif]-->
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="http://localhost:4000/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://localhost:4000/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body class="post">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="http://localhost:4000">Never Pop</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation">
+		    <ul>
+		        
+				<li><a href="http://localhost:4000/about/" >About</a></li>
+		        
+				<li><a href="http://localhost:4000/posts/" >Posts</a></li>
+		        
+		        <li><i class="icon-feed"></i> <a href="http://localhost:4000/feed.xml" title="Atom/RSS feed">Feed</a>
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+
+<div id="main" role="main">
+  <div class="article-author-side">
+    <img src="http://localhost:4000/images/bio-photo.jpg" class="bio-photo" alt="Hugo Santos bio photo"></a>
+<h3>Hugo Santos</h3>
+<p></p>
+
+
+
+<a href="http://linkedin.com/in/hugocaracol" class="author-social" target="_blank"><i class="icon-linkedin"></i> LinkedIn</a>
+
+<a href="http://github.com/hugocaracol" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+
+
+  </div>
+  <article>
+    <div class="headline-wrap">
+      <h1>Stack data structure</h1>
+      <h2></h2>
+    </div><!--/ .headline-wrap -->
+    <div class="article-wrap">
+      <p>Imagine you have to do the dishes and you put one plate on top of the other.<br />
+The stack data structure works in that way. In the beginning the stack is empty (no plates). The first plate is put onto the stack and now the stack has one plate. There comes another plate which is put on top of the first one. Now you have two plates but you need to put them in the kitchen cabinet. You remove the last plate (the second one) from the stack and put it in the cabinet. You do the same for the other plate (the first one). This is how things work when we talk about the stack data structure.
+<!-- more -->
+This data structure permits only two operations:<br />
+- <strong>Push</strong> - pushes elements onto the stack<br />
+- <strong>Pop</strong> - removes elements from the stack</p>
+
+<p>This is a “Last In First Out” memory, because the first stored elements are the last to be removed.</p>
+
+<p>I’ll show you my implementation (Python) using linked lists.</p>
+
+<div class="highlight"><pre><code class="python"><span class="k">class</span> <span class="nc">Stack</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">top</span> <span class="o">=</span> <span class="bp">None</span>
+
+    <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+        <span class="n">node</span> <span class="o">=</span> <span class="n">StackNode</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">top</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">node</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">top</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">top</span> <span class="o">=</span> <span class="n">node</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">top</span> <span class="o">=</span> <span class="n">node</span>
+
+    <span class="k">def</span> <span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">top</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">None</span>
+        <span class="n">node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">top</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">top</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">top</span><span class="o">.</span><span class="n">next</span>
+
+        <span class="k">return</span> <span class="n">node</span><span class="o">.</span><span class="n">item</span>
+
+
+<span class="k">class</span> <span class="nc">StackNode</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">item</span> <span class="o">=</span> <span class="n">item</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="bp">None</span>
+</code></pre></div>
+
+<p>When the stack object is created, the top property is set to None because the stack is empty.</p>
+
+<p>When one object is pushed onto the stack, we create a new node and check if the stack is empty. If it is, we initialize the stack with that node (self.top = node). If it’s not, we set the next property of the node to the top-most node already on the stack and update the top of the stack to the new node.</p>
+
+<p>When we pop a node from the stack we have to check if the stack is empty. If it is, we return nothing. If it’s not, we put the self.top node into a variable node, update the top of the stack to the next node, and return the object that is contained in the node.</p>
+
+<p>Usage example:</p>
+
+<div class="highlight"><pre><code class="python"><span class="n">stack</span> <span class="o">=</span> <span class="n">Stack</span><span class="p">()</span>  <span class="c"># creates the stack object</span>
+<span class="n">stack</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s">&#39;Plate1&#39;</span><span class="p">)</span>
+<span class="n">stack</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s">&#39;Plate&#39;</span><span class="p">)</span>
+<span class="c">#then we pop them</span>
+<span class="k">print</span> <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>  <span class="c"># Plate2</span>
+<span class="k">print</span> <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>  <span class="c"># Plate1</span>
+</code></pre></div>
+
+<p>I hope it’s clear.</p>
+
+      <hr />
+      <footer role="contentinfo">
+        <div class="article-author-bottom">
+          <img src="http://localhost:4000/images/bio-photo.jpg" class="bio-photo" alt="Hugo Santos bio photo"></a>
+<h3>Hugo Santos</h3>
+<p></p>
+
+
+
+<a href="http://linkedin.com/in/hugocaracol" class="author-social" target="_blank"><i class="icon-linkedin"></i> LinkedIn</a>
+
+<a href="http://github.com/hugocaracol" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+
+
+        </div>
+        <p class="byline"><strong>Stack data structure</strong> was published on <time datetime="2012-11-27T00:00:00+00:00">November 27, 2012</time> by <a href="http://localhost:4000/about" title="About Hugo Santos">Hugo Santos</a>.</p>
+      </footer>
+    </div><!-- /.article-wrap -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrap">
+  <div class="related-articles">
+  <h4>You might also enjoy <small class="pull-right">(<a href="http://localhost:4000/posts/">View all posts</a>)</small></h4>
+    <ul>
+    
+      
+      
+        
+      
+      
+    
+      
+      
+        
+      
+      
+    
+      
+      
+        
+      
+      
+    
+    </ul>
+    <hr />
+  </div><!-- /.related-articles -->
+  <footer>
+    <span>&copy; 2014 Hugo Santos. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://localhost:4000/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://localhost:4000/assets/js/scripts.min.js"></script>
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  var _gaq = _gaq || [];
+  var pluginUrl = 
+ '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-127045-13']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+	        
+
+</body>
+</html>
