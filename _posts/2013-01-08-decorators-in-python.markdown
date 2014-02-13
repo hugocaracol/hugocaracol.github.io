@@ -202,4 +202,6 @@ run_me("Hugo")
 
 This concludes the post.
 
-Disclaimer: Much of the ideas described here came from Simeon Franklin's [post on decorators](http://simeonfranklin.com/blog/2012/jul/1/python-decorators-in-12-steps/).
+####Disclaimer
+Much of the ideas described here came from Simeon Franklin's [post on decorators](http://simeonfranklin.com/blog/2012/jul/1/python-decorators-in-12-steps/).
+This post is available at <a href="http://www.codeproject.com/script/Articles/BlogFeedList.aspx?amid=10549383" rel="tag">CodeProject</a>.
