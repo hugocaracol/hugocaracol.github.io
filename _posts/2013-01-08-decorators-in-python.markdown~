@@ -10,7 +10,7 @@ First things first... the house. In my world it's very simple to build a house, 
 After the "construction", in order to live there, we need to turn it cozier. For this effect we can call a decorator to shine things up.
 When she arrives and sees the house she says: I'm going to decorate it with paitings on the wall. With no further delay she: @decorate("paitings").
 
-``` python Decorate a house
+{% highlight python %}
 def decorate(thing):
     def _decorate(func_name):
         def __decorate(*args, **kwargs):
@@ -26,7 +26,7 @@ def build_house():
     return "This is a house"
 {% endhighlight %}
 
-``` python run
+{% highlight python %}
 >>> print build_house()
 This is a house decorated with paintings on the wall
 {% endhighlight %}
@@ -42,7 +42,7 @@ The statement *functions can return functions* implies that an argument of a fun
 
 I'm getting sick of writing the word *function* but let's continue with a piece of code.
 
-``` python functions
+{% highlight python %}
 def outer():
     def inner():
         print 'inner'
@@ -65,7 +65,7 @@ From Wikipedia...
 
 This means that our inner function can "remember" non-local variables, in our case, variables defined in outer function.
 
-``` python closure
+{% highlight python %}
 def outer():
     x = 1
     def inner():
@@ -76,11 +76,12 @@ fn = outer()
 del outer  # deletes object outer
 fn()  # 'Got value 1 from non-local'
 {% endhighlight %}
+
 Even deleting the function outer, fn() still prints x variable.
 
 ###Functions as arguments
 
-``` python closure
+{% highlight python %}
 def run_me():
     print "I'm running baby"
 
@@ -99,7 +100,7 @@ On line 9, r gets function inner, returned by outer, which calls run_me (closure
 ###Decorate me!
 Now let's try some decorator magic.
 
-``` python magic
+{% highlight python %}
 def outer(func):
     def inner():
         print "Before running the function"
@@ -118,7 +119,7 @@ I'm running baby
 This is a simple example of a decorator. To apply the decorator to a function you use @ symbol followed by the decorator name. Here you no longer need to use 'r = outer(run_me)' and 'r()'. Much simpler!
 
 How about if we change the definition of function run_me and add a parameter name to it? Will the decorator still works? Let's try!
-``` python decorator still works?
+{% highlight python %}
 def outer(func):
     def inner():
         print "Before running the function"
@@ -136,7 +137,7 @@ TypeError: inner() takes no arguments (1 given)
 We get an error saying function inner takes no arguments but we tried to pass the name "Hugo". Sadly it doesn't work. Happily we know how to fix it :)
 
 To fix it we add a parameter 'name' to the function inner and then add the argument to the function call on line 4 below.
-``` python decorator now works
+{% highlight python %}
 def outer(func):
     def inner(name):
         print "Before running the function"
@@ -161,7 +162,7 @@ Ok, so far so good. But what happens if I change the definition of the function 
 For more info on *args and **kwargs please refer to one of the many posted questions on [Stackoverflow](http://stackoverflow.com/questions/3394835/args-and-kwargs) or [Python docs](http://docs.python.org/2/tutorial/controlflow.html#arbitrary-argument-lists).
 
 As we want to abstract from the number of arguments passed to the function inner we replace 'def inner(name):' with 'def inner(\*args, \*\*kwargs):' and 'func(name)' with 'func(\*args, \*\*kwargs)'. 
-``` python decorator now works
+{% highlight python %}
 def outer(func):
     def inner(*args, **kwargs):
         print "Before running the function"
@@ -181,7 +182,7 @@ This step is only required if you want to add some salt to the decorator, changi
 
 The decorator function now has a parameter that indicates if we run it in debug mode or not. To get this, we add another "level" of functions. As you can see from the code below the decorator is composed by the function outer (with takes the debug argument), the function _outer (which takes the 'function' argument) and the function inner (which takes the arguments to the function to be decorated).
 
-``` python decorator with parameters
+{% highlight python %}
 def outer(debug=False):
     def _outer(func):
         def inner(*args, **kwargs):
@@ -201,4 +202,6 @@ run_me("Hugo")
 
 This concludes the post.
 
-Disclaimer: Much of the ideas described here came from Simeon Franklin's [post on decorators](http://simeonfranklin.com/blog/2012/jul/1/python-decorators-in-12-steps/).
+####Disclaimer
+Much of the ideas described here came from Simeon Franklin's [post on decorators](http://simeonfranklin.com/blog/2012/jul/1/python-decorators-in-12-steps/).
+Thiss post is available at <a href="http://www.codeproject.com/script/Articles/BlogFeedList.aspx?amid=10549383" rel="tag">CodeProject</a>.
