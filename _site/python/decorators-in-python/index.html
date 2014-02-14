@@ -8,23 +8,28 @@
 <title>Decorators in Python &#8211; Never Pop</title>
 <meta name="description" content="">
 <meta name="keywords" content="">
-
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://hugocaracol.github.io/images/">
+<meta name="twitter:title" content="Decorators in Python">
+<meta name="twitter:description" content="Always push, never pop.">
+<meta name="twitter:creator" content="@hugocaracol">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Decorators in Python">
 <meta property="og:description" content="Always push, never pop.">
-<meta property="og:url" content="http://localhost:4000/python/decorators-in-python/">
+<meta property="og:url" content="http://hugocaracol.github.io/python/decorators-in-python/">
 <meta property="og:site_name" content="Never Pop">
 
 
 
 
 
-<link rel="canonical" href="http://localhost:4000/python/decorators-in-python/">
-<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Never Pop Feed">
-
+<link rel="canonical" href="http://hugocaracol.github.io/python/decorators-in-python/">
+<link href="http://hugocaracol.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="Never Pop Feed">
+<link rel="author" href="101784533054915367141?rel=author">
 
 <!-- http://t.co/dKP3o1e -->
 <meta name="HandheldFriendly" content="True">
@@ -34,30 +39,30 @@
 <!-- Google Webfonts -->
 <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
 <!-- For all browsers -->
-<link rel="stylesheet" href="http://localhost:4000/assets/css/main.min.css">
+<link rel="stylesheet" href="http://hugocaracol.github.io/assets/css/main.min.css">
 
 <!--[if (lt IE 9) & (!IEMobile)]>
-<link rel="stylesheet" href="http://localhost:4000/assets/css/ie.min.css">
+<link rel="stylesheet" href="http://hugocaracol.github.io/assets/css/ie.min.css">
 <![endif]-->
 
 <meta http-equiv="cleartype" content="on">
 
 <!-- Load Modernizr -->
-<script src="http://localhost:4000/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+<script src="http://hugocaracol.github.io/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
 
 <!-- Icons -->
 <!-- 16x16 -->
-<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+<link rel="shortcut icon" href="http://hugocaracol.github.io/favicon.ico">
 <!-- 32x32 -->
-<link rel="shortcut icon" href="http://localhost:4000/favicon.png">
+<link rel="shortcut icon" href="http://hugocaracol.github.io/favicon.png">
 <!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
-<link rel="apple-touch-icon-precomposed" href="http://localhost:4000/images/apple-touch-icon-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="http://hugocaracol.github.io/images/apple-touch-icon-precomposed.png">
 <!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://hugocaracol.github.io/images/apple-touch-icon-72x72-precomposed.png">
 <!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://hugocaracol.github.io/images/apple-touch-icon-114x114-precomposed.png">
 <!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://hugocaracol.github.io/images/apple-touch-icon-144x144-precomposed.png">
 
 </head>
 
@@ -67,17 +72,17 @@
 
 <div class="navigation-wrapper">
 	<div class="site-name">
-		<a href="http://localhost:4000">Never Pop</a>
+		<a href="http://hugocaracol.github.io">Never Pop</a>
 	</div><!-- /.site-name -->
 	<div class="top-navigation">
 		<nav role="navigation">
 		    <ul>
 		        
-				<li><a href="http://localhost:4000/about/" >About</a></li>
+				<li><a href="http://hugocaracol.github.io/about/" >About</a></li>
 		        
-				<li><a href="http://localhost:4000/posts/" >Posts</a></li>
+				<li><a href="http://hugocaracol.github.io/posts/" >Posts</a></li>
 		        
-		        <li><i class="icon-feed"></i> <a href="http://localhost:4000/feed.xml" title="Atom/RSS feed">Feed</a>
+		        <li><i class="icon-feed"></i> <a href="http://hugocaracol.github.io/feed.xml" title="Atom/RSS feed">Feed</a>
 		    </ul>
 		</nav>
 	</div><!-- /.top-navigation -->
@@ -87,12 +92,12 @@
 
 <div id="main" role="main">
   <div class="article-author-side">
-    <img src="http://localhost:4000/images/bio-photo.jpg" class="bio-photo" alt="Hugo Santos bio photo"></a>
+    <img src="http://hugocaracol.github.io/images/bio-photo.jpg" class="bio-photo" alt="Hugo Santos bio photo"></a>
 <h3>Hugo Santos</h3>
 <p></p>
+<a href="http://twitter.com/hugocaracol" class="author-social" target="_blank"><i class="icon-twitter"></i> Twitter</a>
 
-
-
+<a href="101784533054915367141" class="author-social" target="_blank"><i class="icon-google-plus"></i> Google+</a>
 <a href="http://linkedin.com/in/hugocaracol" class="author-social" target="_blank"><i class="icon-linkedin"></i> LinkedIn</a>
 
 <a href="http://github.com/hugocaracol" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
@@ -308,19 +313,19 @@ This post is available at <a href="http://www.codeproject.com/script/Articles/Bl
       <hr />
       <footer role="contentinfo">
         <div class="article-author-bottom">
-          <img src="http://localhost:4000/images/bio-photo.jpg" class="bio-photo" alt="Hugo Santos bio photo"></a>
+          <img src="http://hugocaracol.github.io/images/bio-photo.jpg" class="bio-photo" alt="Hugo Santos bio photo"></a>
 <h3>Hugo Santos</h3>
 <p></p>
+<a href="http://twitter.com/hugocaracol" class="author-social" target="_blank"><i class="icon-twitter"></i> Twitter</a>
 
-
-
+<a href="101784533054915367141" class="author-social" target="_blank"><i class="icon-google-plus"></i> Google+</a>
 <a href="http://linkedin.com/in/hugocaracol" class="author-social" target="_blank"><i class="icon-linkedin"></i> LinkedIn</a>
 
 <a href="http://github.com/hugocaracol" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
 
 
         </div>
-        <p class="byline"><strong>Decorators in Python</strong> was published on <time datetime="2013-01-08T20:56:00+00:00">January 08, 2013</time> by <a href="http://localhost:4000/about" title="About Hugo Santos">Hugo Santos</a>.</p>
+        <p class="byline"><strong>Decorators in Python</strong> was published on <time datetime="2013-01-08T20:56:00+00:00">January 08, 2013</time> by <a href="http://hugocaracol.github.io/about" title="About Hugo Santos">Hugo Santos</a>.</p>
       </footer>
     </div><!-- /.article-wrap -->
   </article>
@@ -328,7 +333,7 @@ This post is available at <a href="http://www.codeproject.com/script/Articles/Bl
 
 <div class="footer-wrap">
   <div class="related-articles">
-  <h4>You might also enjoy <small class="pull-right">(<a href="http://localhost:4000/posts/">View all posts</a>)</small></h4>
+  <h4>You might also enjoy <small class="pull-right">(<a href="http://hugocaracol.github.io/posts/">View all posts</a>)</small></h4>
     <ul>
     
       
@@ -359,8 +364,8 @@ This post is available at <a href="http://www.codeproject.com/script/Articles/Bl
 </div><!-- /.footer-wrap -->
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="http://localhost:4000/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
-<script src="http://localhost:4000/assets/js/scripts.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://hugocaracol.github.io/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://hugocaracol.github.io/assets/js/scripts.min.js"></script>
 
 <!-- Asynchronous Google Analytics snippet -->
 <script>
