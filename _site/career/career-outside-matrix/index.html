@@ -5,24 +5,24 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>Class inheritance check with __mro__ &#8211; Never Pop</title>
+<title>Career outside the Matrix &#8211; Never Pop</title>
 <meta name="description" content="">
-<meta name="keywords" content="">
+<meta name="keywords" content="matrix, movies">
 
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Class inheritance check with __mro__">
+<meta property="og:title" content="Career outside the Matrix">
 <meta property="og:description" content="Always push, never pop.">
-<meta property="og:url" content="http://localhost:4000/python/class-inheritance-check-with-mro/">
+<meta property="og:url" content="http://localhost:4000/career/career-outside-matrix/">
 <meta property="og:site_name" content="Never Pop">
 
 
 
 
 
-<link rel="canonical" href="http://localhost:4000/python/class-inheritance-check-with-mro/">
+<link rel="canonical" href="http://localhost:4000/career/career-outside-matrix/">
 <link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Never Pop Feed">
 
 
@@ -101,58 +101,59 @@
   </div>
   <article>
     <div class="headline-wrap">
-      <h1>Class inheritance check with __mro__</h1>
+      <h1>Career outside the Matrix</h1>
       <h2></h2>
     </div><!--/ .headline-wrap -->
     <div class="article-wrap">
-      <p>Consider the following code:</p>
+      <p>Every year student grads enter the work force. At least they try to. 
+Through job ads they hope to catch a glimpse of something that can take them out of present despair. 
+If lucky, they land a job in a multinational company.</p>
 
-<div class="highlight"><pre><code class="python"><span class="k">class</span> <span class="nc">A</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">pass</span>
-<span class="k">class</span> <span class="nc">B</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
-    <span class="k">pass</span>
-<span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="n">B</span><span class="p">):</span>
-    <span class="k">pass</span>
-<span class="k">class</span> <span class="nc">D</span><span class="p">(</span><span class="n">C</span><span class="p">):</span>
-    <span class="k">pass</span>
-</code></pre></div>
+<p>The years go by and they’re still at the same place doing the same thing they did some years ago. 
+<em>At least I’m financially stable</em> - they think. But as this thought comes to mind, another one comes up…</p>
 
-<p>As you can see, D derives from C, which derives from B, which derives from A, which derives from object. In this example is very clear to see the relations between the classes. But usually, things get more complicated and you can’t figure out in a second how the classes fit together. Specially if there’s no documentation!</p>
+<blockquote>
+  <p>What you know you can’t explain, but you feel it. You’ve felt it your entire life, that there’s something 
+wrong with the world. You don’t know what it is, but it’s there, like a splinter in your mind, driving you mad.</p>
 
-<p><strong>MRO</strong> stands for <strong>Method Resolution Order</strong> and defines the path to follow when calling methods belonging to super classes.</p>
+  <p>–<cite>Morpheus</cite></p>
+</blockquote>
 
-<!-- more -->
+<p>Every night they go home and browse the internet for some possible solution, feel sleepy, reboot 
+(dreaming about a different life)…</p>
 
-<p>Use &lt;your_class&gt;.__mro__ to print a tuple which describes the order of the method resolution.</p>
+<p>Until one day, someone shows up and offer them to choose between a blue and a red pill. </p>
 
-<p>Let’s print out D.__mro__</p>
+<blockquote>
+  <p>You take the blue pill - the story ends, you wake up in your bed and believe whatever you want to believe. 
+You take the red pill - you stay in Wonderland and I show you how deep the rabbit-hole goes.</p>
 
-<div class="highlight"><pre><code class="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">D</span><span class="o">.</span><span class="n">__mro__</span>  <span class="c"># try also: [x.__name__ for x in D.__mro__]</span>
-<span class="p">(</span><span class="o">&lt;</span><span class="k">class</span> <span class="err">&#39;</span><span class="nc">__main__</span><span class="o">.</span><span class="n">D</span><span class="s">&#39;&gt;, &lt;class &#39;</span><span class="n">__main__</span><span class="o">.</span><span class="n">C</span><span class="s">&#39;&gt;, &lt;class &#39;</span><span class="n">__main__</span><span class="o">.</span><span class="n">B</span><span class="s">&#39;&gt;, &lt;class &#39;</span><span class="n">__main__</span><span class="o">.</span><span class="n">A</span><span class="s">&#39;&gt;, &lt;type &#39;</span><span class="nb">object</span><span class="s">&#39;&gt;)</span>
-</code></pre></div>
+  <p>–<cite>Morpheus</cite></p>
+</blockquote>
 
-<p>How about if we change the defintion of D.</p>
+<p>This rabbit-hole is full of uncertainty, adrenaline and, in the end, a sense of purpose.</p>
 
-<div class="highlight"><pre><code class="python"><span class="k">class</span> <span class="nc">A</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">pass</span>
+<p>With their eyes open, they start to meet people like them, people they didn’t know that existed. Companies looking 
+forward to hire someone like them. People that challenge the <em>status quo</em> every-single-day. But… a <strong>BIG LOUD</strong> but…</p>
 
-<span class="k">class</span> <span class="nc">B</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
-    <span class="k">pass</span>
+<blockquote>
+  <p>I’m trying to free your mind, Neo. But I can only show you the door. You’re the one that has to walk through it.</p>
 
-<span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="n">B</span><span class="p">):</span>
-    <span class="k">pass</span>
+  <p>–<cite>Morpheus</cite></p>
+</blockquote>
 
-<span class="k">class</span> <span class="nc">D</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
-    <span class="k">pass</span>
-</code></pre></div>
+<p>Huge doubts in their minds. <em>Am I good enough? Will I let the people down?</em></p>
 
-<div class="highlight"><pre><code class="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">D</span><span class="o">.</span><span class="n">__mro__</span>
-<span class="p">(</span><span class="o">&lt;</span><span class="k">class</span> <span class="err">&#39;</span><span class="nc">__main__</span><span class="o">.</span><span class="n">D</span><span class="s">&#39;&gt;, &lt;class &#39;</span><span class="n">__main__</span><span class="o">.</span><span class="n">C</span><span class="s">&#39;&gt;, &lt;class &#39;</span><span class="n">__main__</span><span class="o">.</span><span class="n">B</span><span class="s">&#39;&gt;, &lt;class &#39;</span><span class="n">__main__</span><span class="o">.</span><span class="n">A</span><span class="s">&#39;&gt;, &lt;type &#39;</span><span class="nb">object</span><span class="s">&#39;&gt;)</span>
-</code></pre></div>
+<blockquote>
+  <p>What are you waiting for? You’re faster than this. <strong>Don’t think you are, know you are</strong>. Come on. Stop trying to hit me and hit me.</p>
 
-<p>Python first looks in D, then in C, then in B, then in A and then in object.</p>
+  <p>–<cite>Morpheus</cite></p>
+</blockquote>
 
-<p>But beware! Change the definition of D - <em>class D(B, C):</em> - and check its __mro__.</p>
+<p><img src="/images/the_matrix_neo.jpg" alt="Neo" /></p>
+
+<h4 id="go-hit-morpheus-not-me--">Go hit Morpheus, not me :-)</h4>
+
 
       <hr />
       <footer role="contentinfo">
@@ -169,7 +170,7 @@
 
 
         </div>
-        <p class="byline"><strong>Class inheritance check with __mro__</strong> was published on <time datetime="2013-01-12T13:41:00+00:00">January 12, 2013</time> by <a href="http://localhost:4000/about" title="About Hugo Santos">Hugo Santos</a>.</p>
+        <p class="byline"><strong>Career outside the Matrix</strong> was published on <time datetime="2014-02-13T00:00:00+00:00">February 13, 2014</time> by <a href="http://localhost:4000/about" title="About Hugo Santos">Hugo Santos</a>.</p>
       </footer>
     </div><!-- /.article-wrap -->
   </article>
@@ -193,6 +194,8 @@
       
     
       
+      
+        
       
         
       

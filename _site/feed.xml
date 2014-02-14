@@ -3,52 +3,91 @@
 <title type="text">Never Pop</title>
 <subtitle type="text">Always push, never pop.</subtitle>
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
-<link rel="self" type="application/atom+xml" href="http://hugocaracol.github.io/feed.xml" />
-<link rel="alternate" type="text/html" href="http://hugocaracol.github.io" />
-<updated>2014-02-10T01:28:43+00:00</updated>
-<id>http://hugocaracol.github.io/</id>
+<link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml" />
+<link rel="alternate" type="text/html" href="http://localhost:4000" />
+<updated>2014-02-14T00:09:34+00:00</updated>
+<id>http://localhost:4000/</id>
 <author>
   <name>Hugo Santos</name>
-  <uri>http://hugocaracol.github.io/</uri>
+  <uri>http://localhost:4000/</uri>
   <email>hugonsantos@gmail.com</email>
 </author>
 
 
 <entry>
-  <title type="html"><![CDATA[python exit program]]></title>
-  <link rel="alternate" type="text/html" href="http://hugocaracol.github.io/python/python-exit-program/" />
-  <id>http://hugocaracol.github.io/python/python-exit-program</id>
-  <published>2013-07-30T19:38:00+01:00</published>
-  <updated>2013-07-30T19:38:00+01:00</updated>
+  <title type="html"><![CDATA[Career outside the Matrix]]></title>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/career/career-outside-matrix/" />
+  <id>http://localhost:4000/career/career-outside-matrix</id>
+  <published>2014-02-13T00:00:00+00:00</published>
+  <updated>2014-02-13T00:00:00+00:00</updated>
   <author>
     <name>Hugo Santos</name>
-    <uri>http://hugocaracol.github.io</uri>
+    <uri>http://localhost:4000</uri>
     <email>hugonsantos@gmail.com</email>
   </author>
-  <content type="html">&lt;p&gt;One question that is asked a lot on the web is:
-&amp;gt;How to exit a Python program&lt;/p&gt;
+  <content type="html">&lt;p&gt;Every year student grads enter the work force. At least they try to. 
+Through job ads they hope to catch a glimpse of something that can take them out of present despair. 
+If lucky, they land a job in a multinational company.&lt;/p&gt;
 
-&lt;p&gt;That is &lt;strong&gt;very simple&lt;/strong&gt;. Just:&lt;/p&gt;
+&lt;p&gt;The years go by and they’re still at the same place doing the same thing they did some years ago. 
+&lt;em&gt;At least I’m financially stable&lt;/em&gt; - they think. But as this thought comes to mind, another one comes up…&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;sys&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;sys&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;exit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;What you know you can’t explain, but you feel it. You’ve felt it your entire life, that there’s something 
+wrong with the world. You don’t know what it is, but it’s there, like a splinter in your mind, driving you mad.&lt;/p&gt;
 
-&lt;p&gt;You can also pass as argument an exit status. Please check &lt;a href=&quot;http://docs.python.org/2/library/sys.html#sys.exit&quot;&gt;python docs&lt;/a&gt;.&lt;/p&gt;
+  &lt;p&gt;–&lt;cite&gt;Morpheus&lt;/cite&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/python/python-exit-program/&quot;&gt;python exit program&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Never Pop&lt;/a&gt; on July 30, 2013.&lt;/p&gt;</content>
+&lt;p&gt;Every night they go home and browse the internet for some possible solution, feel sleepy, reboot 
+(dreaming about a different life)…&lt;/p&gt;
+
+&lt;p&gt;Until one day, someone shows up and offer them to choose between a blue and a red pill. &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;You take the blue pill - the story ends, you wake up in your bed and believe whatever you want to believe. 
+You take the red pill - you stay in Wonderland and I show you how deep the rabbit-hole goes.&lt;/p&gt;
+
+  &lt;p&gt;–&lt;cite&gt;Morpheus&lt;/cite&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;This rabbit-hole is full of uncertainty, adrenaline and, in the end, a sense of purpose.&lt;/p&gt;
+
+&lt;p&gt;With their eyes open, they start to meet people like them, people they didn’t know that existed. Companies looking 
+forward to hire someone like them. People that challenge the &lt;em&gt;status quo&lt;/em&gt; every-single-day. But… a &lt;strong&gt;BIG LOUD&lt;/strong&gt; but…&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;I’m trying to free your mind, Neo. But I can only show you the door. You’re the one that has to walk through it.&lt;/p&gt;
+
+  &lt;p&gt;–&lt;cite&gt;Morpheus&lt;/cite&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Huge doubts in their minds. &lt;em&gt;Am I good enough? Will I let the people down?&lt;/em&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;What are you waiting for? You’re faster than this. &lt;strong&gt;Don’t think you are, know you are&lt;/strong&gt;. Come on. Stop trying to hit me and hit me.&lt;/p&gt;
+
+  &lt;p&gt;–&lt;cite&gt;Morpheus&lt;/cite&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/the_matrix_neo.jpg&quot; alt=&quot;Neo&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;go-hit-morpheus-not-me--&quot;&gt;Go hit Morpheus, not me :-)&lt;/h4&gt;
+
+
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/career/career-outside-matrix/&quot;&gt;Career outside the Matrix&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://localhost:4000&quot;&gt;Never Pop&lt;/a&gt; on February 13, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Relevant keywords using TF-IDF]]></title>
-  <link rel="alternate" type="text/html" href="http://hugocaracol.github.io/data-mining/relevant-keywords-using-tf-idf/" />
-  <id>http://hugocaracol.github.io/data-mining/relevant-keywords-using-tf-idf</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/data-mining/relevant-keywords-using-tf-idf/" />
+  <id>http://localhost:4000/data-mining/relevant-keywords-using-tf-idf</id>
   <published>2013-07-16T16:26:00+01:00</published>
   <updated>2013-07-16T16:26:00+01:00</updated>
   <author>
     <name>Hugo Santos</name>
-    <uri>http://hugocaracol.github.io</uri>
+    <uri>http://localhost:4000</uri>
     <email>hugonsantos@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;TF-IDF is a numerical statistic that tells us how important some word is in a document. It stands for &lt;strong&gt;term frequency - inverse document frequency&lt;/strong&gt;.
@@ -117,19 +156,19 @@ purposes that google contains 50 billion documents indexed.*&lt;/p&gt;
 &lt;p&gt;As you can see, the term &lt;em&gt;blog&lt;/em&gt; does not make a good keyword. All other terms are a good fit.&lt;/p&gt;
 
 
-  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/data-mining/relevant-keywords-using-tf-idf/&quot;&gt;Relevant keywords using TF-IDF&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Never Pop&lt;/a&gt; on July 16, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/data-mining/relevant-keywords-using-tf-idf/&quot;&gt;Relevant keywords using TF-IDF&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://localhost:4000&quot;&gt;Never Pop&lt;/a&gt; on July 16, 2013.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[RTFM extended]]></title>
-  <link rel="alternate" type="text/html" href="http://hugocaracol.github.io/code/rtfm-extended/" />
-  <id>http://hugocaracol.github.io/code/rtfm-extended</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/code/rtfm-extended/" />
+  <id>http://localhost:4000/code/rtfm-extended</id>
   <published>2013-06-08T12:24:00+01:00</published>
   <updated>2013-06-08T12:24:00+01:00</updated>
   <author>
     <name>Hugo Santos</name>
-    <uri>http://hugocaracol.github.io</uri>
+    <uri>http://localhost:4000</uri>
     <email>hugonsantos@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;As you know RTFM stands for Read the Fucking Manual. Today, I would like to introduce you to RTWFM which stands for &lt;strong&gt;Read the Whole Fucking Manual&lt;/strong&gt;.&lt;/p&gt;
@@ -151,19 +190,19 @@ as put on my place again, a very humble little place. I couldn’t believed I ha
 &lt;p&gt;This is a warning to &lt;strong&gt;Read the Whole Fucking Manual&lt;/strong&gt; because sometimes you miss important things that can easily spare you time and frustration.&lt;/p&gt;
 
 
-  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/code/rtfm-extended/&quot;&gt;RTFM extended&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Never Pop&lt;/a&gt; on June 08, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/code/rtfm-extended/&quot;&gt;RTFM extended&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://localhost:4000&quot;&gt;Never Pop&lt;/a&gt; on June 08, 2013.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Classes in C Programming]]></title>
-  <link rel="alternate" type="text/html" href="http://hugocaracol.github.io/oop/c/classes-in-c-programming/" />
-  <id>http://hugocaracol.github.io/oop/c/classes-in-c-programming</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/oop/c/classes-in-c-programming/" />
+  <id>http://localhost:4000/oop/c/classes-in-c-programming</id>
   <published>2013-05-29T19:42:00+01:00</published>
   <updated>2013-05-29T19:42:00+01:00</updated>
   <author>
     <name>Hugo Santos</name>
-    <uri>http://hugocaracol.github.io</uri>
+    <uri>http://localhost:4000</uri>
     <email>hugonsantos@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Last evening I was playing around with C and came up with an example showing simple OOP concepts.&lt;/p&gt;
@@ -304,19 +343,19 @@ Beware that the heap space if not automatically freed. &lt;strong&gt;Enjoy :-)&l
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/oop/c/classes-in-c-programming/&quot;&gt;Classes in C Programming&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Never Pop&lt;/a&gt; on May 29, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/oop/c/classes-in-c-programming/&quot;&gt;Classes in C Programming&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://localhost:4000&quot;&gt;Never Pop&lt;/a&gt; on May 29, 2013.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Fibonacci ultra fast]]></title>
-  <link rel="alternate" type="text/html" href="http://hugocaracol.github.io/code/fibonacci-ultra-fast/" />
-  <id>http://hugocaracol.github.io/code/fibonacci-ultra-fast</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/code/fibonacci-ultra-fast/" />
+  <id>http://localhost:4000/code/fibonacci-ultra-fast</id>
   <published>2013-05-21T23:27:00+01:00</published>
   <updated>2013-05-21T23:27:00+01:00</updated>
   <author>
     <name>Hugo Santos</name>
-    <uri>http://hugocaracol.github.io</uri>
+    <uri>http://localhost:4000</uri>
     <email>hugonsantos@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;It’s never too late to optimize the code. Never too late to realize there’s a better approach.&lt;/p&gt;
@@ -362,19 +401,19 @@ Computing the fibonacci number 500 using the function from the previous post
 we get 0.0014700890 seconds. But if we run it with this function we get 0.0011551380 seconds. That is an &lt;strong&gt;increasing performance of 78.6% improvement.&lt;/strong&gt;&lt;/p&gt;
 
 
-  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/code/fibonacci-ultra-fast/&quot;&gt;Fibonacci ultra fast&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Never Pop&lt;/a&gt; on May 21, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/code/fibonacci-ultra-fast/&quot;&gt;Fibonacci ultra fast&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://localhost:4000&quot;&gt;Never Pop&lt;/a&gt; on May 21, 2013.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Accelerating with memoization]]></title>
-  <link rel="alternate" type="text/html" href="http://hugocaracol.github.io/code/accelerating-with-memoization/" />
-  <id>http://hugocaracol.github.io/code/accelerating-with-memoization</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/code/accelerating-with-memoization/" />
+  <id>http://localhost:4000/code/accelerating-with-memoization</id>
   <published>2013-05-21T20:20:00+01:00</published>
   <updated>2013-05-21T20:20:00+01:00</updated>
   <author>
     <name>Hugo Santos</name>
-    <uri>http://hugocaracol.github.io</uri>
+    <uri>http://localhost:4000</uri>
     <email>hugonsantos@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Memoization can be incredible useful for expensive calculations. Just look at the results at the bottom of the post to check how long the 2 functions (with and without memoization) take to run the computation of fib 35.&lt;/p&gt;
@@ -439,19 +478,19 @@ Accelerating… (with memoization)&lt;br /&gt;
 &lt;strong&gt;0.0000698566 seconds&lt;/strong&gt;&lt;/p&gt;
 
 
-  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/code/accelerating-with-memoization/&quot;&gt;Accelerating with memoization&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Never Pop&lt;/a&gt; on May 21, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/code/accelerating-with-memoization/&quot;&gt;Accelerating with memoization&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://localhost:4000&quot;&gt;Never Pop&lt;/a&gt; on May 21, 2013.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[sqrt newton way]]></title>
-  <link rel="alternate" type="text/html" href="http://hugocaracol.github.io/scheme/lisp/sqrt-newton-way/" />
-  <id>http://hugocaracol.github.io/scheme/lisp/sqrt-newton-way</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/scheme/lisp/sqrt-newton-way/" />
+  <id>http://localhost:4000/scheme/lisp/sqrt-newton-way</id>
   <published>2013-05-12T00:24:00+01:00</published>
   <updated>2013-05-12T00:24:00+01:00</updated>
   <author>
     <name>Hugo Santos</name>
-    <uri>http://hugocaracol.github.io</uri>
+    <uri>http://localhost:4000</uri>
     <email>hugonsantos@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;I was working through a way to get a square-root function to work in scheme.&lt;/p&gt;
@@ -485,19 +524,19 @@ Accelerating… (with memoization)&lt;br /&gt;
 
 &lt;p&gt;A precision I won’t forget. COOL!!!&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/scheme/lisp/sqrt-newton-way/&quot;&gt;sqrt newton way&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Never Pop&lt;/a&gt; on May 12, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/scheme/lisp/sqrt-newton-way/&quot;&gt;sqrt newton way&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://localhost:4000&quot;&gt;Never Pop&lt;/a&gt; on May 12, 2013.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Delta Debugging]]></title>
-  <link rel="alternate" type="text/html" href="http://hugocaracol.github.io/debugging/delta-debugging/" />
-  <id>http://hugocaracol.github.io/debugging/delta-debugging</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/debugging/delta-debugging/" />
+  <id>http://localhost:4000/debugging/delta-debugging</id>
   <published>2013-04-09T23:31:00+01:00</published>
   <updated>2013-04-09T23:31:00+01:00</updated>
   <author>
     <name>Hugo Santos</name>
-    <uri>http://hugocaracol.github.io</uri>
+    <uri>http://localhost:4000</uri>
     <email>hugonsantos@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Delta Debugging is an automated debugging approach based on systematic testing.&lt;/p&gt;
@@ -612,19 +651,19 @@ This can be very hard to do if some random set from a 5000 character string is f
 &amp;gt;”git bisect” is one of the most useful and overlooked debugging tools.&lt;/p&gt;
 
 
-  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/debugging/delta-debugging/&quot;&gt;Delta Debugging&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Never Pop&lt;/a&gt; on April 09, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/debugging/delta-debugging/&quot;&gt;Delta Debugging&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://localhost:4000&quot;&gt;Never Pop&lt;/a&gt; on April 09, 2013.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Bitwise and CONSTANT values]]></title>
-  <link rel="alternate" type="text/html" href="http://hugocaracol.github.io/bitwise/bitwise-and-constant-values/" />
-  <id>http://hugocaracol.github.io/bitwise/bitwise-and-constant-values</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/bitwise/bitwise-and-constant-values/" />
+  <id>http://localhost:4000/bitwise/bitwise-and-constant-values</id>
   <published>2013-02-15T22:29:00+00:00</published>
   <updated>2013-02-15T22:29:00+00:00</updated>
   <author>
     <name>Hugo Santos</name>
-    <uri>http://hugocaracol.github.io</uri>
+    <uri>http://localhost:4000</uri>
     <email>hugonsantos@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Recently I read an article explaining how to use bitwise operations to grant or deny access to something.
@@ -800,19 +839,19 @@ PERM_DELETE = 8 (&lt;strong&gt;0 0 0 0 1 0 0 0&lt;/strong&gt;)  &lt;/p&gt;
 
 &lt;p&gt;This concludes the bitwise perm system.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/bitwise/bitwise-and-constant-values/&quot;&gt;Bitwise and CONSTANT values&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Never Pop&lt;/a&gt; on February 15, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/bitwise/bitwise-and-constant-values/&quot;&gt;Bitwise and CONSTANT values&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://localhost:4000&quot;&gt;Never Pop&lt;/a&gt; on February 15, 2013.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Making of a simple debugger]]></title>
-  <link rel="alternate" type="text/html" href="http://hugocaracol.github.io/debugging/making-of-a-simple-debugger/" />
-  <id>http://hugocaracol.github.io/debugging/making-of-a-simple-debugger</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/debugging/making-of-a-simple-debugger/" />
+  <id>http://localhost:4000/debugging/making-of-a-simple-debugger</id>
   <published>2013-02-12T23:50:00+00:00</published>
   <updated>2013-02-12T23:50:00+00:00</updated>
   <author>
     <name>Hugo Santos</name>
-    <uri>http://hugocaracol.github.io</uri>
+    <uri>http://localhost:4000</uri>
     <email>hugonsantos@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;I was introduced to sys.settrace in the Udacity course on debugging. Python docs say:
@@ -894,19 +933,19 @@ we want to debug and in the end we disable &lt;em&gt;settrace&lt;/em&gt;.&lt;/p&
 &lt;p&gt;This debugger can be extended to infer invariants (one of the exercises on the debugging course). Watching how variables change, can give us hints about 
 their ranges (min, max). Use it but don’t take it too seriously ;-)&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/debugging/making-of-a-simple-debugger/&quot;&gt;Making of a simple debugger&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Never Pop&lt;/a&gt; on February 12, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/debugging/making-of-a-simple-debugger/&quot;&gt;Making of a simple debugger&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://localhost:4000&quot;&gt;Never Pop&lt;/a&gt; on February 12, 2013.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Preconditions, Postconditions and Invariants]]></title>
-  <link rel="alternate" type="text/html" href="http://hugocaracol.github.io/debugging/preconditions-postconditions-invariants/" />
-  <id>http://hugocaracol.github.io/debugging/preconditions-postconditions-invariants</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/debugging/preconditions-postconditions-invariants/" />
+  <id>http://localhost:4000/debugging/preconditions-postconditions-invariants</id>
   <published>2013-02-11T18:56:00+00:00</published>
   <updated>2013-02-11T18:56:00+00:00</updated>
   <author>
     <name>Hugo Santos</name>
-    <uri>http://hugocaracol.github.io</uri>
+    <uri>http://localhost:4000</uri>
     <email>hugonsantos@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Frequently when debugging software we usually spend lots of time figuring out where exactly is the bug that is creating the
@@ -943,19 +982,19 @@ their ranges (min, max). Use it but don’t take it too seriously ;-)&lt;/p&gt;
 &lt;p&gt;Set of conditions that must assert to True before and after the execution of a method. Invariants are composed by a set of conditions that are always valid. This is
  useful to ensure that the code is running according to the algorithm.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/debugging/preconditions-postconditions-invariants/&quot;&gt;Preconditions, Postconditions and Invariants&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Never Pop&lt;/a&gt; on February 11, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/debugging/preconditions-postconditions-invariants/&quot;&gt;Preconditions, Postconditions and Invariants&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://localhost:4000&quot;&gt;Never Pop&lt;/a&gt; on February 11, 2013.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Software Debugging]]></title>
-  <link rel="alternate" type="text/html" href="http://hugocaracol.github.io/debugging/software-debugging/" />
-  <id>http://hugocaracol.github.io/debugging/software-debugging</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/debugging/software-debugging/" />
+  <id>http://localhost:4000/debugging/software-debugging</id>
   <published>2013-02-08T23:22:00+00:00</published>
   <updated>2013-02-08T23:22:00+00:00</updated>
   <author>
     <name>Hugo Santos</name>
-    <uri>http://hugocaracol.github.io</uri>
+    <uri>http://localhost:4000</uri>
     <email>hugonsantos@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;I started &lt;a href=&quot;https://www.udacity.com/course/cs259&quot;&gt;Software debugging class&lt;/a&gt; on Udacity.&lt;/p&gt;
@@ -996,19 +1035,19 @@ Practice: Building a statistic debugging tool.&lt;/p&gt;
 Fun fact: Programmer with the most buggy code.&lt;br /&gt;
 Practice: Improving your tools and practicing on a real world bug database.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/debugging/software-debugging/&quot;&gt;Software Debugging&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Never Pop&lt;/a&gt; on February 08, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/debugging/software-debugging/&quot;&gt;Software Debugging&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://localhost:4000&quot;&gt;Never Pop&lt;/a&gt; on February 08, 2013.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Babysitting an army of monkeys]]></title>
-  <link rel="alternate" type="text/html" href="http://hugocaracol.github.io/testing/babysitting-an-army-of-monkeys/" />
-  <id>http://hugocaracol.github.io/testing/babysitting-an-army-of-monkeys</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/testing/babysitting-an-army-of-monkeys/" />
+  <id>http://localhost:4000/testing/babysitting-an-army-of-monkeys</id>
   <published>2013-02-06T23:19:00+00:00</published>
   <updated>2013-02-06T23:19:00+00:00</updated>
   <author>
     <name>Hugo Santos</name>
-    <uri>http://hugocaracol.github.io</uri>
+    <uri>http://localhost:4000</uri>
     <email>hugonsantos@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;“Babysitting an Army of Monkeys: An analysis of fuzzing 4 products with 5 lines of Python” was the title of a talk by Charlie Miller in CodenomiCON 2010.&lt;br /&gt;
@@ -1031,19 +1070,19 @@ The steps are:&lt;/p&gt;
 
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;http://www.youtube.com/embed/lK5fgCvS2N4&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/testing/babysitting-an-army-of-monkeys/&quot;&gt;Babysitting an army of monkeys&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Never Pop&lt;/a&gt; on February 06, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/testing/babysitting-an-army-of-monkeys/&quot;&gt;Babysitting an army of monkeys&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://localhost:4000&quot;&gt;Never Pop&lt;/a&gt; on February 06, 2013.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Code coverage]]></title>
-  <link rel="alternate" type="text/html" href="http://hugocaracol.github.io/testing/code-coverage/" />
-  <id>http://hugocaracol.github.io/testing/code-coverage</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/testing/code-coverage/" />
+  <id>http://localhost:4000/testing/code-coverage</id>
   <published>2013-02-04T22:42:00+00:00</published>
   <updated>2013-02-04T22:42:00+00:00</updated>
   <author>
     <name>Hugo Santos</name>
-    <uri>http://hugocaracol.github.io</uri>
+    <uri>http://localhost:4000</uri>
     <email>hugonsantos@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Code coverage is a metric used in software testing that describes the percentage of code that’s been tested.
@@ -1078,19 +1117,19 @@ and more than once.&lt;/p&gt;
 according to the specs.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/testing/code-coverage/&quot;&gt;Code coverage&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Never Pop&lt;/a&gt; on February 04, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/testing/code-coverage/&quot;&gt;Code coverage&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://localhost:4000&quot;&gt;Never Pop&lt;/a&gt; on February 04, 2013.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Software Testing]]></title>
-  <link rel="alternate" type="text/html" href="http://hugocaracol.github.io/testing/software-testing/" />
-  <id>http://hugocaracol.github.io/testing/software-testing</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/testing/software-testing/" />
+  <id>http://localhost:4000/testing/software-testing</id>
   <published>2013-01-30T23:10:00+00:00</published>
   <updated>2013-01-30T23:10:00+00:00</updated>
   <author>
     <name>Hugo Santos</name>
-    <uri>http://hugocaracol.github.io</uri>
+    <uri>http://localhost:4000</uri>
     <email>hugonsantos@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Today I started &lt;a href=&quot;https://www.udacity.com/course/cs258&quot;&gt;Software Testing class&lt;/a&gt; on Udacity.&lt;br /&gt;
@@ -1103,19 +1142,19 @@ but I got curious and found &lt;a href=&quot;http://www.computerworld.com/s/arti
 &lt;/blockquote&gt;
 
 
-  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/testing/software-testing/&quot;&gt;Software Testing&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Never Pop&lt;/a&gt; on January 30, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/testing/software-testing/&quot;&gt;Software Testing&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://localhost:4000&quot;&gt;Never Pop&lt;/a&gt; on January 30, 2013.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Class inheritance check with __mro__]]></title>
-  <link rel="alternate" type="text/html" href="http://hugocaracol.github.io/python/class-inheritance-check-with-mro/" />
-  <id>http://hugocaracol.github.io/python/class-inheritance-check-with-mro</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/python/class-inheritance-check-with-mro/" />
+  <id>http://localhost:4000/python/class-inheritance-check-with-mro</id>
   <published>2013-01-12T13:41:00+00:00</published>
   <updated>2013-01-12T13:41:00+00:00</updated>
   <author>
     <name>Hugo Santos</name>
-    <uri>http://hugocaracol.github.io</uri>
+    <uri>http://localhost:4000</uri>
     <email>hugonsantos@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Consider the following code:&lt;/p&gt;
@@ -1167,19 +1206,19 @@ but I got curious and found &lt;a href=&quot;http://www.computerworld.com/s/arti
 
 &lt;p&gt;But beware! Change the definition of D - &lt;em&gt;class D(B, C):&lt;/em&gt; - and check its __mro__.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/python/class-inheritance-check-with-mro/&quot;&gt;Class inheritance check with __mro__&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Never Pop&lt;/a&gt; on January 12, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/python/class-inheritance-check-with-mro/&quot;&gt;Class inheritance check with __mro__&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://localhost:4000&quot;&gt;Never Pop&lt;/a&gt; on January 12, 2013.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Decorators in Python]]></title>
-  <link rel="alternate" type="text/html" href="http://hugocaracol.github.io/python/decorators-in-python/" />
-  <id>http://hugocaracol.github.io/python/decorators-in-python</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/python/decorators-in-python/" />
+  <id>http://localhost:4000/python/decorators-in-python</id>
   <published>2013-01-08T20:56:00+00:00</published>
   <updated>2013-01-08T20:56:00+00:00</updated>
   <author>
     <name>Hugo Santos</name>
-    <uri>http://hugocaracol.github.io</uri>
+    <uri>http://localhost:4000</uri>
     <email>hugonsantos@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Today I’ll turn you into a decorator. Let’s build a house and decorated it.
@@ -1378,21 +1417,23 @@ Functions are first class objects. That means a function is indeed an object. Ob
 
 &lt;p&gt;This concludes the post.&lt;/p&gt;
 
-&lt;p&gt;Disclaimer: Much of the ideas described here came from Simeon Franklin’s &lt;a href=&quot;http://simeonfranklin.com/blog/2012/jul/1/python-decorators-in-12-steps/&quot;&gt;post on decorators&lt;/a&gt;.&lt;/p&gt;
+&lt;h4 id=&quot;disclaimer&quot;&gt;Disclaimer&lt;/h4&gt;
+&lt;p&gt;Much of the ideas described here came from Simeon Franklin’s &lt;a href=&quot;http://simeonfranklin.com/blog/2012/jul/1/python-decorators-in-12-steps/&quot;&gt;post on decorators&lt;/a&gt;.
+This post is available at &lt;a href=&quot;http://www.codeproject.com/script/Articles/BlogFeedList.aspx?amid=10549383&quot; rel=&quot;tag&quot;&gt;CodeProject&lt;/a&gt;.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/python/decorators-in-python/&quot;&gt;Decorators in Python&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Never Pop&lt;/a&gt; on January 08, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/python/decorators-in-python/&quot;&gt;Decorators in Python&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://localhost:4000&quot;&gt;Never Pop&lt;/a&gt; on January 08, 2013.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Migration to github pages]]></title>
-  <link rel="alternate" type="text/html" href="http://hugocaracol.github.io/github/migration-to-github-pages/" />
-  <id>http://hugocaracol.github.io/github/migration-to-github-pages</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/github/migration-to-github-pages/" />
+  <id>http://localhost:4000/github/migration-to-github-pages</id>
   <published>2013-01-04T23:07:00+00:00</published>
   <updated>2013-01-04T23:07:00+00:00</updated>
   <author>
     <name>Hugo Santos</name>
-    <uri>http://hugocaracol.github.io</uri>
+    <uri>http://localhost:4000</uri>
     <email>hugonsantos@gmail.com</email>
   </author>
   <content type="html">
@@ -1400,19 +1441,19 @@ Functions are first class objects. That means a function is indeed an object. Ob
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/github/migration-to-github-pages/&quot;&gt;Migration to github pages&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Never Pop&lt;/a&gt; on January 04, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/github/migration-to-github-pages/&quot;&gt;Migration to github pages&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://localhost:4000&quot;&gt;Never Pop&lt;/a&gt; on January 04, 2013.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Portuguese dictionary]]></title>
-  <link rel="alternate" type="text/html" href="http://hugocaracol.github.io/random/portuguese-dictionary/" />
-  <id>http://hugocaracol.github.io/random/portuguese-dictionary</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/random/portuguese-dictionary/" />
+  <id>http://localhost:4000/random/portuguese-dictionary</id>
   <published>2012-12-28T00:00:00+00:00</published>
   <updated>2012-12-28T00:00:00+00:00</updated>
   <author>
     <name>Hugo Santos</name>
-    <uri>http://hugocaracol.github.io</uri>
+    <uri>http://localhost:4000</uri>
     <email>hugonsantos@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Today I played with beautifulsoup and wrote a script to query a portuguese online dictionary.&lt;/p&gt;
@@ -1429,19 +1470,19 @@ Functions are first class objects. That means a function is indeed an object. Ob
 
 &lt;p&gt;Code is available on &lt;a href=&quot;https://github.com/hugocaracol/porto-editora-dict&quot;&gt;Github&lt;/a&gt;.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/random/portuguese-dictionary/&quot;&gt;Portuguese dictionary&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Never Pop&lt;/a&gt; on December 28, 2012.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/random/portuguese-dictionary/&quot;&gt;Portuguese dictionary&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://localhost:4000&quot;&gt;Never Pop&lt;/a&gt; on December 28, 2012.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Nokogiri]]></title>
-  <link rel="alternate" type="text/html" href="http://hugocaracol.github.io/random/nokogiri/" />
-  <id>http://hugocaracol.github.io/random/nokogiri</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/random/nokogiri/" />
+  <id>http://localhost:4000/random/nokogiri</id>
   <published>2012-12-27T00:00:00+00:00</published>
   <updated>2012-12-27T00:00:00+00:00</updated>
   <author>
     <name>Hugo Santos</name>
-    <uri>http://hugocaracol.github.io</uri>
+    <uri>http://localhost:4000</uri>
     <email>hugonsantos@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Today I found &lt;a href=&quot;http://nokogiri.org/&quot;&gt;Nokogiri&lt;/a&gt;.
@@ -1453,7 +1494,7 @@ Functions are first class objects. That means a function is indeed an object. Ob
   &lt;p&gt;XML is like violence - if it doesn’t solve your problems, you are not using enough of it.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/random/nokogiri/&quot;&gt;Nokogiri&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Never Pop&lt;/a&gt; on December 27, 2012.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/random/nokogiri/&quot;&gt;Nokogiri&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://localhost:4000&quot;&gt;Never Pop&lt;/a&gt; on December 27, 2012.&lt;/p&gt;</content>
 </entry>
 
 </feed>

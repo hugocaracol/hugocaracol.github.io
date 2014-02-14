@@ -1,6 +1,6 @@
 title:            Never Pop
 tagline:          Always push, never pop.
-description:      Describe your website.
+description:      Always push, never pop.
 # Your site's domain goes here. Leave localhost server or blank when working locally.
 url:              http://hugocaracol.github.io
 
@@ -11,7 +11,7 @@ owner:
   bio:            ""
   email:          hugonsantos@gmail.com
   # Social networking links are used in author-bio sidebar. Update and remove as you like.
-  twitter:        
+  twitter:        hugocaracol
   facebook:       
   github:         hugocaracol
   linkedin:       hugocaracol
@@ -19,7 +19,7 @@ owner:
   lastfm:         
   tumblr:         
   # For Google Authorship https://plus.google.com/authorship
-  google_plus:    
+  google_plus:    101784533054915367141
 
 # Analytics and webmaster tools stuff goes here
 google_analytics:   UA-127045-13

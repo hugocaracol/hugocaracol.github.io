@@ -11,7 +11,7 @@ owner:
   bio:            ""
   email:          hugonsantos@gmail.com
   # Social networking links are used in author-bio sidebar. Update and remove as you like.
-  twitter:        hugocaracol
+  twitter:        
   facebook:       
   github:         hugocaracol
   linkedin:       hugocaracol
@@ -19,7 +19,7 @@ owner:
   lastfm:         
   tumblr:         
   # For Google Authorship https://plus.google.com/authorship
-  google_plus:    101784533054915367141
+  google_plus:    
 
 # Analytics and webmaster tools stuff goes here
 google_analytics:   UA-127045-13
