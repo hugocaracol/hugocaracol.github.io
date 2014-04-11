@@ -1,5 +1,5 @@
-title:            Never Pop
-tagline:          Always push, never pop.
+title:            Stack Data Structure
+tagline:          My own stack data structure
 description:      Always push, never pop.
 # Your site's domain goes here. Leave localhost server or blank when working locally.
 url:              http://hugocaracol.github.io
@@ -19,7 +19,7 @@ owner:
   lastfm:         
   tumblr:         
   # For Google Authorship https://plus.google.com/authorship
-  google_plus:    101784533054915367141
+  google_plus:    https://plus.google.com/101784533054915367141
 
 # Analytics and webmaster tools stuff goes here
 google_analytics:   UA-127045-13
@@ -34,9 +34,9 @@ links:
     url: /about/
   - title: Posts
     url: /posts/
-#  - title: Made Mistakes
-#    url: http://mademistakes.com
-#    external: true
+  - title: B12 Android App
+    url: https://play.google.com/store/apps/details?id=com.hugocaracol.b12
+    external: true
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 timezone:    Europe/Lisbon
