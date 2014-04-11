@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
-<title type="text">Never Pop</title>
-<subtitle type="text">Always push, never pop.</subtitle>
+<title type="text">Stack Data Structure</title>
+<subtitle type="text">My own stack data structure</subtitle>
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://hugocaracol.github.io/feed.xml" />
 <link rel="alternate" type="text/html" href="http://hugocaracol.github.io" />
-<updated>2014-02-14T19:57:25+00:00</updated>
+<updated>2014-04-12T00:02:22+01:00</updated>
 <id>http://hugocaracol.github.io/</id>
 <author>
   <name>Hugo Santos</name>
@@ -75,7 +75,7 @@ forward to hire someone like them. People that challenge the &lt;em&gt;status qu
 &lt;h4 id=&quot;go-hit-morpheus-not-me--&quot;&gt;Go hit Morpheus, not me :-)&lt;/h4&gt;
 
 
-  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/career/career-outside-matrix/&quot;&gt;Career outside the Matrix&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Never Pop&lt;/a&gt; on February 13, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/career/career-outside-matrix/&quot;&gt;Career outside the Matrix&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Stack Data Structure&lt;/a&gt; on February 13, 2014.&lt;/p&gt;</content>
 </entry>
 
 
@@ -156,7 +156,7 @@ purposes that google contains 50 billion documents indexed.*&lt;/p&gt;
 &lt;p&gt;As you can see, the term &lt;em&gt;blog&lt;/em&gt; does not make a good keyword. All other terms are a good fit.&lt;/p&gt;
 
 
-  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/data-mining/relevant-keywords-using-tf-idf/&quot;&gt;Relevant keywords using TF-IDF&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Never Pop&lt;/a&gt; on July 16, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/data-mining/relevant-keywords-using-tf-idf/&quot;&gt;Relevant keywords using TF-IDF&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Stack Data Structure&lt;/a&gt; on July 16, 2013.&lt;/p&gt;</content>
 </entry>
 
 
@@ -190,7 +190,7 @@ as put on my place again, a very humble little place. I couldn’t believed I ha
 &lt;p&gt;This is a warning to &lt;strong&gt;Read the Whole Fucking Manual&lt;/strong&gt; because sometimes you miss important things that can easily spare you time and frustration.&lt;/p&gt;
 
 
-  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/code/rtfm-extended/&quot;&gt;RTFM extended&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Never Pop&lt;/a&gt; on June 08, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/code/rtfm-extended/&quot;&gt;RTFM extended&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Stack Data Structure&lt;/a&gt; on June 08, 2013.&lt;/p&gt;</content>
 </entry>
 
 
@@ -343,7 +343,7 @@ Beware that the heap space if not automatically freed. &lt;strong&gt;Enjoy :-)&l
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/oop/c/classes-in-c-programming/&quot;&gt;Classes in C Programming&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Never Pop&lt;/a&gt; on May 29, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/oop/c/classes-in-c-programming/&quot;&gt;Classes in C Programming&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Stack Data Structure&lt;/a&gt; on May 29, 2013.&lt;/p&gt;</content>
 </entry>
 
 
@@ -401,7 +401,7 @@ Computing the fibonacci number 500 using the function from the previous post
 we get 0.0014700890 seconds. But if we run it with this function we get 0.0011551380 seconds. That is an &lt;strong&gt;increasing performance of 78.6% improvement.&lt;/strong&gt;&lt;/p&gt;
 
 
-  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/code/fibonacci-ultra-fast/&quot;&gt;Fibonacci ultra fast&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Never Pop&lt;/a&gt; on May 21, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/code/fibonacci-ultra-fast/&quot;&gt;Fibonacci ultra fast&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Stack Data Structure&lt;/a&gt; on May 21, 2013.&lt;/p&gt;</content>
 </entry>
 
 
@@ -478,7 +478,7 @@ Accelerating… (with memoization)&lt;br /&gt;
 &lt;strong&gt;0.0000698566 seconds&lt;/strong&gt;&lt;/p&gt;
 
 
-  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/code/accelerating-with-memoization/&quot;&gt;Accelerating with memoization&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Never Pop&lt;/a&gt; on May 21, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/code/accelerating-with-memoization/&quot;&gt;Accelerating with memoization&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Stack Data Structure&lt;/a&gt; on May 21, 2013.&lt;/p&gt;</content>
 </entry>
 
 
@@ -524,7 +524,7 @@ Accelerating… (with memoization)&lt;br /&gt;
 
 &lt;p&gt;A precision I won’t forget. COOL!!!&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/scheme/lisp/sqrt-newton-way/&quot;&gt;sqrt newton way&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Never Pop&lt;/a&gt; on May 12, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/scheme/lisp/sqrt-newton-way/&quot;&gt;sqrt newton way&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Stack Data Structure&lt;/a&gt; on May 12, 2013.&lt;/p&gt;</content>
 </entry>
 
 
@@ -651,7 +651,7 @@ This can be very hard to do if some random set from a 5000 character string is f
 &amp;gt;”git bisect” is one of the most useful and overlooked debugging tools.&lt;/p&gt;
 
 
-  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/debugging/delta-debugging/&quot;&gt;Delta Debugging&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Never Pop&lt;/a&gt; on April 09, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/debugging/delta-debugging/&quot;&gt;Delta Debugging&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Stack Data Structure&lt;/a&gt; on April 09, 2013.&lt;/p&gt;</content>
 </entry>
 
 
@@ -839,7 +839,7 @@ PERM_DELETE = 8 (&lt;strong&gt;0 0 0 0 1 0 0 0&lt;/strong&gt;)  &lt;/p&gt;
 
 &lt;p&gt;This concludes the bitwise perm system.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/bitwise/bitwise-and-constant-values/&quot;&gt;Bitwise and CONSTANT values&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Never Pop&lt;/a&gt; on February 15, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/bitwise/bitwise-and-constant-values/&quot;&gt;Bitwise and CONSTANT values&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Stack Data Structure&lt;/a&gt; on February 15, 2013.&lt;/p&gt;</content>
 </entry>
 
 
@@ -933,7 +933,7 @@ we want to debug and in the end we disable &lt;em&gt;settrace&lt;/em&gt;.&lt;/p&
 &lt;p&gt;This debugger can be extended to infer invariants (one of the exercises on the debugging course). Watching how variables change, can give us hints about 
 their ranges (min, max). Use it but don’t take it too seriously ;-)&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/debugging/making-of-a-simple-debugger/&quot;&gt;Making of a simple debugger&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Never Pop&lt;/a&gt; on February 12, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/debugging/making-of-a-simple-debugger/&quot;&gt;Making of a simple debugger&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Stack Data Structure&lt;/a&gt; on February 12, 2013.&lt;/p&gt;</content>
 </entry>
 
 
@@ -982,7 +982,7 @@ their ranges (min, max). Use it but don’t take it too seriously ;-)&lt;/p&gt;
 &lt;p&gt;Set of conditions that must assert to True before and after the execution of a method. Invariants are composed by a set of conditions that are always valid. This is
  useful to ensure that the code is running according to the algorithm.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/debugging/preconditions-postconditions-invariants/&quot;&gt;Preconditions, Postconditions and Invariants&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Never Pop&lt;/a&gt; on February 11, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/debugging/preconditions-postconditions-invariants/&quot;&gt;Preconditions, Postconditions and Invariants&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Stack Data Structure&lt;/a&gt; on February 11, 2013.&lt;/p&gt;</content>
 </entry>
 
 
@@ -1035,7 +1035,7 @@ Practice: Building a statistic debugging tool.&lt;/p&gt;
 Fun fact: Programmer with the most buggy code.&lt;br /&gt;
 Practice: Improving your tools and practicing on a real world bug database.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/debugging/software-debugging/&quot;&gt;Software Debugging&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Never Pop&lt;/a&gt; on February 08, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/debugging/software-debugging/&quot;&gt;Software Debugging&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Stack Data Structure&lt;/a&gt; on February 08, 2013.&lt;/p&gt;</content>
 </entry>
 
 
@@ -1070,7 +1070,7 @@ The steps are:&lt;/p&gt;
 
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;http://www.youtube.com/embed/lK5fgCvS2N4&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/testing/babysitting-an-army-of-monkeys/&quot;&gt;Babysitting an army of monkeys&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Never Pop&lt;/a&gt; on February 06, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/testing/babysitting-an-army-of-monkeys/&quot;&gt;Babysitting an army of monkeys&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Stack Data Structure&lt;/a&gt; on February 06, 2013.&lt;/p&gt;</content>
 </entry>
 
 
@@ -1117,7 +1117,7 @@ and more than once.&lt;/p&gt;
 according to the specs.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/testing/code-coverage/&quot;&gt;Code coverage&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Never Pop&lt;/a&gt; on February 04, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/testing/code-coverage/&quot;&gt;Code coverage&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Stack Data Structure&lt;/a&gt; on February 04, 2013.&lt;/p&gt;</content>
 </entry>
 
 
@@ -1142,7 +1142,7 @@ but I got curious and found &lt;a href=&quot;http://www.computerworld.com/s/arti
 &lt;/blockquote&gt;
 
 
-  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/testing/software-testing/&quot;&gt;Software Testing&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Never Pop&lt;/a&gt; on January 30, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/testing/software-testing/&quot;&gt;Software Testing&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Stack Data Structure&lt;/a&gt; on January 30, 2013.&lt;/p&gt;</content>
 </entry>
 
 
@@ -1206,7 +1206,7 @@ but I got curious and found &lt;a href=&quot;http://www.computerworld.com/s/arti
 
 &lt;p&gt;But beware! Change the definition of D - &lt;em&gt;class D(B, C):&lt;/em&gt; - and check its __mro__.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/python/class-inheritance-check-with-mro/&quot;&gt;Class inheritance check with __mro__&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Never Pop&lt;/a&gt; on January 12, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/python/class-inheritance-check-with-mro/&quot;&gt;Class inheritance check with __mro__&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Stack Data Structure&lt;/a&gt; on January 12, 2013.&lt;/p&gt;</content>
 </entry>
 
 
@@ -1421,7 +1421,7 @@ Functions are first class objects. That means a function is indeed an object. Ob
 &lt;p&gt;Much of the ideas described here came from Simeon Franklin’s &lt;a href=&quot;http://simeonfranklin.com/blog/2012/jul/1/python-decorators-in-12-steps/&quot;&gt;post on decorators&lt;/a&gt;.
 This post is available at &lt;a href=&quot;http://www.codeproject.com/script/Articles/BlogFeedList.aspx?amid=10549383&quot; rel=&quot;tag&quot;&gt;CodeProject&lt;/a&gt;.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/python/decorators-in-python/&quot;&gt;Decorators in Python&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Never Pop&lt;/a&gt; on January 08, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/python/decorators-in-python/&quot;&gt;Decorators in Python&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Stack Data Structure&lt;/a&gt; on January 08, 2013.&lt;/p&gt;</content>
 </entry>
 
 
@@ -1441,7 +1441,7 @@ This post is available at &lt;a href=&quot;http://www.codeproject.com/script/Art
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/github/migration-to-github-pages/&quot;&gt;Migration to github pages&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Never Pop&lt;/a&gt; on January 04, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/github/migration-to-github-pages/&quot;&gt;Migration to github pages&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Stack Data Structure&lt;/a&gt; on January 04, 2013.&lt;/p&gt;</content>
 </entry>
 
 
@@ -1470,7 +1470,7 @@ This post is available at &lt;a href=&quot;http://www.codeproject.com/script/Art
 
 &lt;p&gt;Code is available on &lt;a href=&quot;https://github.com/hugocaracol/porto-editora-dict&quot;&gt;Github&lt;/a&gt;.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/random/portuguese-dictionary/&quot;&gt;Portuguese dictionary&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Never Pop&lt;/a&gt; on December 28, 2012.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/random/portuguese-dictionary/&quot;&gt;Portuguese dictionary&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Stack Data Structure&lt;/a&gt; on December 28, 2012.&lt;/p&gt;</content>
 </entry>
 
 
@@ -1494,7 +1494,7 @@ This post is available at &lt;a href=&quot;http://www.codeproject.com/script/Art
   &lt;p&gt;XML is like violence - if it doesn’t solve your problems, you are not using enough of it.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/random/nokogiri/&quot;&gt;Nokogiri&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Never Pop&lt;/a&gt; on December 27, 2012.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://hugocaracol.github.io/random/nokogiri/&quot;&gt;Nokogiri&lt;/a&gt; was originally published by Hugo Santos at &lt;a href=&quot;http://hugocaracol.github.io&quot;&gt;Stack Data Structure&lt;/a&gt; on December 27, 2012.&lt;/p&gt;</content>
 </entry>
 
 </feed>
