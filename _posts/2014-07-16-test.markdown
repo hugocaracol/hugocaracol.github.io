@@ -1,0 +1,7 @@
+---
+layout: post
+title: "test title"
+status: publish
+published: true
+---
+this is just a test
